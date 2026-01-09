@@ -1,2 +1,11 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
+
+
+@theme {
+    --color-primary-blue: #0087B8;
+    --color-secondary-blue: #A9DFF3;
+    --color-terthiary-blue: #004D66;
+    --color-body-white: #FDFDFD;
+    --color-accent-red: #FF5555;
+}
