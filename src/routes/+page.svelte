@@ -1,2 +1,13 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script lang='ts'>
+    import Header from "$lib/components/Header.svelte";
+    import Scrollytelling from "$lib/components/Scrollytelling.svelte";
+    import RiskFactors from "$lib/components/RiskFactors.svelte";
+    import TimeTrend from "$lib/components/TimeTrend.svelte";
+    import Footer from "$lib/components/Footer.svelte";
+</script>
+
+<Header/>
+<Scrollytelling/>
+<RiskFactors/>
+<TimeTrend/>
+<Footer/>
