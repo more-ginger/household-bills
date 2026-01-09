@@ -1,11 +1,45 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 
+@font-face {
+	font-family: 'Epilogue';
+	src: url('./fonts/Epilogue/Epilogue-VariableFont_wght.ttf') format('woff2-variations');
+	src: url('./fonts/Epilogue/Epilogue-VariableFont_wght.ttf') format('woff2') tech('variations');
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Crimson';
+	src: url('./fonts/Crimson_Pro/CrimsonPro-VariableFont_wght.ttf') format('woff2-variations');
+	src: url('./fonts/Crimson_Pro/CrimsonPro-VariableFont_wght.ttf') format('woff2')
+		tech('variations');
+	font-weight: 200 900;
+	font-style: normal;
+	font-display: swap;
+}
 
 @theme {
-    --color-primary-blue: #0087B8;
-    --color-secondary-blue: #A9DFF3;
-    --color-terthiary-blue: #004D66;
-    --color-body-white: #FDFDFD;
-    --color-accent-red: #FF5555;
+	--color-primary-blue: #0087b8;
+	--color-secondary-blue: #a9dff3;
+	--color-terthiary-blue: #004d66;
+	--color-body-white: #fdfdfd;
+	--color-accent-red: #ff5555;
+
+	--font-epilogue: 'Epilogue', serif;
+	--font-crimson: 'Crimson', serif;
+}
+
+:root {
+	h1 {
+		font-family: var(--font-epilogue);
+		font-weight: 800;
+	}
+
+	h2,
+	div,
+	p {
+		font-weight: 200;
+	}
 }
