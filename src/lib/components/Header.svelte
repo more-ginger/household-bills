@@ -2,20 +2,28 @@
 	<h1 class="text-6xl">Falling Behind on Household Bills</h1>
 	<h2 class="text-3xl">Risk Factors and Population Trends in the UK since 2009</h2>
 	<div class="w-60">
-		<img src="illustrations/webp/bill.webp" />
+		<img src="illustrations/webp/objects/bill.webp" />
 	</div>
 	<div class="w-40">
-		<img src="illustrations/webp/bill.webp" />
+		<img src="illustrations/webp/objects/bill.webp" />
 	</div>
 	<div class="w-20">
-		<img src="illustrations/webp/bill.webp" />
+		<img src="illustrations/webp/objects/bill.webp" />
 	</div>
 	<div class="flex">
 		<div class="m-2 w-20 border">
-			<img class="" src="illustrations/webp/human1-darkblue-accent.webp" />
+			<img class="" src="illustrations/webp/humans/human1-darkblue-accent.webp" />
 		</div>
 		<div class="m-2 w-20 border">
-			<img class="" src="illustrations/webp/human2-darkblue-accent.webp" />
+			<img class="" src="illustrations/webp/humans/human2-darkblue-accent.webp" />
+		</div>
+	</div>
+	<div class="w-full border">
+		<div class="m-auto w-1/3 border">
+			<img src="illustrations/webp/houses/house_taxes.webp" />
+			<div class="relative bottom-40 w-20 border">
+				<img class="" src="illustrations/webp/humans/human1-darkblue-accent.webp" />
+			</div>
 		</div>
 	</div>
 </section>

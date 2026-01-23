@@ -30,6 +30,6 @@
 		"vite": "^7.2.6"
 	},
 	"dependencies": {
-		"snarkdown": "^2.0.0"
+		"marked": "^17.0.1"
 	}
 }
