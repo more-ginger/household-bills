@@ -2,11 +2,18 @@
 	"figure-steps": [
 		{
 			"title": "city",
-			"urls": []
+			"urls": [
+				"/illustrations/webp/houses/house1.webp",
+				"/illustrations/webp/houses/house2.webp",
+				"/illustrations/webp/houses/house3.webp",
+				"/illustrations/webp/houses/house4.webp",
+				"/illustrations/webp/houses/house5.webp",
+				"/illustrations/webp/houses/house6.webp"
+			]
 		},
 		{
 			"title": "family-home",
-			"urls": []
+			"urls": ["/illustrations/webp/houses/house_taxes.webp"]
 		},
 		{
 			"title": "population",
@@ -87,11 +94,92 @@
 		},
 		{
 			"title": "population-selection",
-			"urls": []
+			"urls": [
+				"/illustrations/webp/humans/human5-darkblue.webp",
+				"/illustrations/webp/humans/human12-darkblue.webp",
+				"/illustrations/webp/humans/human3-darkblue.webp",
+				"/illustrations/webp/humans/human8-darkblue.webp",
+				"/illustrations/webp/humans/human1-darkblue.webp",
+				"/illustrations/webp/humans/human11-darkblue.webp",
+				"/illustrations/webp/humans/human6-darkblue.webp",
+				"/illustrations/webp/humans/human2-darkblue.webp",
+				"/illustrations/webp/humans/human9-darkblue.webp",
+				"/illustrations/webp/humans/human4-darkblue.webp",
+				"/illustrations/webp/humans/human7-darkblue.webp",
+				"/illustrations/webp/humans/human10-darkblue.webp",
+				"/illustrations/webp/humans/human3-darkblue.webp",
+				"/illustrations/webp/humans/human1-darkblue.webp",
+				"/illustrations/webp/humans/human12-darkblue.webp",
+				"/illustrations/webp/humans/human5-darkblue.webp",
+				"/illustrations/webp/humans/human8-darkblue.webp",
+				"/illustrations/webp/humans/human2-darkblue.webp",
+				"/illustrations/webp/humans/human11-darkblue.webp",
+				"/illustrations/webp/humans/human6-darkblue.webp",
+				"/illustrations/webp/humans/human9-darkblue.webp",
+				"/illustrations/webp/humans/human4-darkblue.webp",
+				"/illustrations/webp/humans/human7-darkblue.webp",
+				"/illustrations/webp/humans/human10-darkblue.webp",
+				"/illustrations/webp/humans/human1-darkblue.webp",
+				"/illustrations/webp/humans/human3-darkblue.webp",
+				"/illustrations/webp/humans/human12-darkblue.webp",
+				"/illustrations/webp/humans/human5-darkblue.webp",
+				"/illustrations/webp/humans/human8-darkblue.webp",
+				"/illustrations/webp/humans/human2-darkblue.webp",
+				"/illustrations/webp/humans/human11-darkblue.webp",
+				"/illustrations/webp/humans/human6-darkblue.webp",
+				"/illustrations/webp/humans/human4-darkblue.webp",
+				"/illustrations/webp/humans/human9-darkblue.webp",
+				"/illustrations/webp/humans/human7-darkblue.webp",
+				"/illustrations/webp/humans/human10-darkblue.webp",
+				"/illustrations/webp/humans/human1-darkblue.webp",
+				"/illustrations/webp/humans/human5-darkblue.webp",
+				"/illustrations/webp/humans/human3-darkblue.webp",
+				"/illustrations/webp/humans/human12-darkblue.webp",
+				"/illustrations/webp/humans/human8-darkblue.webp",
+				"/illustrations/webp/humans/human2-darkblue.webp",
+				"/illustrations/webp/humans/human11-darkblue.webp",
+				"/illustrations/webp/humans/human6-darkblue.webp",
+				"/illustrations/webp/humans/human9-darkblue.webp",
+				"/illustrations/webp/humans/human4-darkblue.webp",
+				"/illustrations/webp/humans/human7-darkblue.webp",
+				"/illustrations/webp/humans/human10-darkblue.webp",
+				"/illustrations/webp/humans/human1-darkblue.webp",
+				"/illustrations/webp/humans/human3-darkblue.webp",
+				"/illustrations/webp/humans/human12-darkblue.webp",
+				"/illustrations/webp/humans/human5-darkblue.webp",
+				"/illustrations/webp/humans/human8-darkblue.webp",
+				"/illustrations/webp/humans/human2-darkblue.webp",
+				"/illustrations/webp/humans/human11-darkblue.webp",
+				"/illustrations/webp/humans/human6-darkblue.webp",
+				"/illustrations/webp/humans/human4-darkblue.webp",
+				"/illustrations/webp/humans/human9-darkblue.webp",
+				"/illustrations/webp/humans/human7-darkblue.webp",
+				"/illustrations/webp/humans/human10-darkblue.webp",
+				"/illustrations/webp/humans/human1-darkblue.webp",
+				"/illustrations/webp/humans/human5-darkblue.webp",
+				"/illustrations/webp/humans/human3-darkblue.webp",
+				"/illustrations/webp/humans/human12-darkblue.webp",
+				"/illustrations/webp/humans/human8-darkblue.webp",
+				"/illustrations/webp/humans/human2-darkblue.webp",
+				"/illustrations/webp/humans/human11-darkblue.webp",
+				"/illustrations/webp/humans/human6-darkblue.webp",
+				"/illustrations/webp/humans/human9-darkblue.webp",
+				"/illustrations/webp/humans/human4-darkblue.webp",
+				"/illustrations/webp/humans/human7-darkblue.webp",
+				"/illustrations/webp/humans/human10-darkblue.webp"
+			]
 		},
 		{
 			"title": "population-selection-zoom",
-			"urls": []
+			"urls": [
+				"/illustrations/webp/humans/human5-darkblue.webp",
+				"/illustrations/webp/humans/human12-darkblue.webp",
+				"/illustrations/webp/humans/human3-darkblue.webp",
+				"/illustrations/webp/humans/human8-darkblue.webp",
+				"/illustrations/webp/humans/human1-darkblue.webp",
+				"/illustrations/webp/humans/human11-darkblue.webp",
+				"/illustrations/webp/humans/human6-darkblue.webp"
+			]
 		},
 		{
 			"title": "single-person",
