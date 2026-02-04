@@ -22,29 +22,36 @@
 			</div>
 		</div>
 	</div>
-	<!-- <div class="w-60">
-		<img src="illustrations/webp/objects/bill.webp" />
-	</div>
-	<div class="w-40">
-		<img src="illustrations/webp/objects/bill.webp" />
-	</div>
-	<div class="w-20">
-		<img src="illustrations/webp/objects/bill.webp" />
-	</div>
-	<div class="flex">
-		<div class="m-2 w-20 border">
-			<img class="" src="illustrations/webp/humans/human1-darkblue-accent.webp" />
+</section>
+<section class="b-top w-full border">
+	<div class="m-auto mt-10 flex w-5/7 bg-red-400">
+		<div class="m-4 ml-2 w-2/5">
+			<h3
+				class="flex h-[3rem] justify-self-start rounded-4xl bg-white p-4 font-epilogue leading-[1.3rem] font-normal text-primary-blue uppercase"
+			>
+				Quick Overview
+			</h3>
+			<p>
+				We analysed data from a large nationally representative survey, Understanding Society, over
+				the period 2009 to 2022. We identified trends and rates of demographic groups falling behind
+				on household bills Some individual and household characteristics are connected to the risk
+				of falling behind on household bills.
+			</p>
 		</div>
-		<div class="m-2 w-20 border">
-			<img class="" src="illustrations/webp/humans/human2-darkblue-accent.webp" />
-		</div>
-	</div>
-	<div class="w-full border">
-		<div class="m-auto w-1/3 border">
-			<img src="illustrations/webp/houses/house_taxes.webp" />
-			<div class="relative bottom-40 w-20 border">
-				<img class="" src="illustrations/webp/humans/human1-darkblue-accent.webp" />
+		<div class="m-4 ml-2 w-3/5">
+			<h3
+				class="flex h-[3rem] justify-self-start rounded-4xl bg-white p-4 font-epilogue leading-[1.3rem] font-normal text-primary-blue uppercase"
+			>
+				Key Findings
+			</h3>
+			<div>
+				<p class="text-xl">Ethnic minority groups disproportionately affected since 2009</p>
+			</div>
+			<div>
+				<p class="text-xl">
+					Key factors connected to an increased risk of being behind on bills include:
+				</p>
 			</div>
 		</div>
-	</div> -->
+	</div>
 </section>
