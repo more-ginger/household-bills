@@ -2,21 +2,24 @@
 	"figure-steps": [
 		{
 			"title": "city",
+			"css": "h-100",
 			"urls": [
-				"/illustrations/webp/houses/house1.webp",
 				"/illustrations/webp/houses/house2.webp",
-				"/illustrations/webp/houses/house3.webp",
+				"/illustrations/webp/houses/house1.webp",
 				"/illustrations/webp/houses/house4.webp",
 				"/illustrations/webp/houses/house5.webp",
-				"/illustrations/webp/houses/house6.webp"
+				"/illustrations/webp/houses/house6.webp",
+				"/illustrations/webp/houses/house3.webp"
 			]
 		},
 		{
 			"title": "family-home",
+			"css": "h-200",
 			"urls": ["/illustrations/webp/houses/house_taxes.webp"]
 		},
 		{
 			"title": "population",
+			"css": "h-20",
 			"urls": [
 				"/illustrations/webp/humans/human5-darkblue.webp",
 				"/illustrations/webp/humans/human12-darkblue.webp",
@@ -94,6 +97,7 @@
 		},
 		{
 			"title": "population-selection",
+			"css": "h-20",
 			"urls": [
 				"/illustrations/webp/humans/human5-darkblue.webp",
 				"/illustrations/webp/humans/human12-darkblue.webp",
