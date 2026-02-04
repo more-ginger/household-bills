@@ -2,6 +2,7 @@
 	import scrollama from 'scrollama';
 	import Text from '../content/test.md?raw';
 	import ScrollyBlocks from './scrollytelling/ScrollyBlocks.svelte';
+	import ScrollyFigure from './scrollytelling/ScrollyFigure.svelte';
 
 	const scroller = scrollama();
 	let step: number = $state(0);
@@ -37,6 +38,8 @@
 </script>
 
 <div class="relative">
-	<figure class="sticky top-0 h-dvh w-full bg-red-100"></figure>
+	<figure class="sticky top-0 h-dvh w-full">
+		<ScrollyFigure {step} />
+	</figure>
 	<article class="relative"><ScrollyBlocks rawScrollyText={Text} {onTextRender} /></article>
 </div>
