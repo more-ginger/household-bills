@@ -23,7 +23,7 @@
 		</div>
 	</div>
 </section>
-<section class="b-top w-full border">
+<section class="w-full border-t">
 	<div class="m-auto mt-10 flex w-5/7 bg-red-400">
 		<div class="m-4 ml-2 w-2/5">
 			<h3

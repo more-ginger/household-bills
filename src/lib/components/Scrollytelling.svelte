@@ -5,5 +5,7 @@
 	const html = marked.parse(Text);
 </script>
 
-<h1>Scrollytelling</h1>
-<div>{@html html}</div>
+<div class="relative">
+	<figure class="sticky top-0 h-dvh w-full bg-red-100"></figure>
+	<article class="relative">{@html html}</article>
+</div>
