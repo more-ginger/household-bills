@@ -30,22 +30,23 @@
 			.padding(1)
 	);
 
-	const positiveYScale = $derived(
+	const yScale = $derived(
 		scaleLinear().domain([minNegativeNumber, maxPositiveNumber]).range([0, 100]).nice()
 	);
 
+	const yTicks = $derived(width > 0 && height > 0 ? yScale.ticks() : []);
+
 	const barShapesForChart = $derived(
 		selectedFactorData.rel.map((d: { riskvaluetosplot_1dp: number }, i: number) => {
-			console.log(+d.riskvaluetosplot_1dp < 0);
 			return {
-				y2: positiveYScale(+d.riskvaluetosplot_1dp),
+				y2: yScale(+d.riskvaluetosplot_1dp),
 				x: xScale(i),
 				isNegative: +d.riskvaluetosplot_1dp < 0
 			};
 		})
 	);
 
-	$inspect(selectedFactorData.rel);
+	$inspect(yTicks);
 </script>
 
 <svg
@@ -76,9 +77,24 @@
 			<path d="M 0 1 L 5 5 L 0 9" stroke="currentColor" fill="transparent" />
 		</marker>
 	</defs>
-	<g class="axis">
-		<line x1="0" y1={height / 2} x2={width} y2={height / 2} stroke="white" stroke-width="3" />
-	</g>
+	{#if width > 0 && height > 0}
+		<g class="axis">
+			<line x1="0" y1={height / 2} x2={width} y2={height / 2} stroke="white" stroke-width="3" />
+			<g>
+				{#each yTicks as tick}
+					<line
+						x1={marginX}
+						y1={yScale(tick)}
+						x2={width}
+						y2={yScale(tick)}
+						stroke="#ccc"
+						stroke-width="1"
+					/>
+					<text x={marginX} y={yScale(tick)}>{tick}</text>
+				{/each}
+			</g>
+		</g>
+	{/if}
 	{#each barShapesForChart as bar}
 		<line
 			y2={bar.isNegative ? height / 2 : bar.y2}
