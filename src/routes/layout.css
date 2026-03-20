@@ -22,7 +22,7 @@
 @theme {
 	--color-primary-blue: #0087b8;
 	--color-secondary-blue: #a9dff3;
-	--color-terthiary-blue: #004d66;
+	--color-tertiary-blue: #004d66;
 	--color-body-white: #fdfdfd;
 	--color-accent-red: #ff5555;
 
@@ -41,4 +41,21 @@
 	p {
 		font-weight: 200;
 	}
+}
+
+.step {
+	padding-top: 50%;
+	padding-bottom: 50%;
+}
+
+.step-child {
+	min-height: 80px;
+	background-color: var(--color-primary-blue);
+	border: 1px solid white;
+	border-radius: 10px;
+	width: 30%;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }

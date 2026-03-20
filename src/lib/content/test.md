@@ -1,7 +1,7 @@
-# This is a test file
-
-## I want to import it
-
-And see how snarkdown deals with classes and the likes!
-
-<div class="step border">What if I have a div with a special class?</div>
+<div class="has-step">
+    <div class="step"><div class="step-child">Household bills are basic costs involved with living in a house.</div></div>
+    <div class="step"><div class="step-child">And then another one?</div></div>
+    <div class="step"><div class="step-child">And then another one?</div></div>
+    <div class="step"><div class="step-child">And then another one?</div></div>
+    <div class="step"><div class="step-child">And then another one?</div></div>
+</div>
