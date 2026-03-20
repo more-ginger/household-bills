@@ -6,24 +6,34 @@
 	const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
 
 	const keys = Object.keys(data) as Array<keyof typeof data>;
-	let selectedFactor = $state<keyof typeof data>(keys[0]);
+	let selectedFactor = $state<keyof typeof data>(keys[3]);
 
-	let selectedFactorDescription = $derived(data[selectedFactor].description);
+	let selectedFactorData = $derived(data[selectedFactor]);
+	let selectedFactorDescription = $derived(selectedFactorData.description);
 </script>
 
-<section class="min-h-dvh border bg-primary-blue">
+<section class="bg-primary-blue">
 	<div class="m-auto w-6/7 md:w-5/7">
-		<div class="title mt-5 h-[20vh] bg-red-100 md:h-fit">
-			<h1>Selected Risk Factor: {capitalize(selectedFactor)}</h1>
-			<p>{selectedFactorDescription}</p>
+		<div class="mt-5 md:flex md:h-[15vh] md:justify-end">
+			<div class="md:h-fit md:w-3/5">
+				<h1>{capitalize(selectedFactor)}</h1>
+				<p>{selectedFactorDescription}</p>
+			</div>
+			<div class="md:w-1/5">Switch visualization</div>
 		</div>
-		<div class="flex h-[75vh] flex-col border md:h-fit md:flex-row">
+		<div class="flex flex-col md:h-fit md:flex-row">
 			<div class="order-2 md:order-1 md:w-1/5">
+				<div>Risk Factors</div>
 				<RiskSelector {data} {keys} bind:selectedFactor />
 			</div>
 			<div class="order-1 md:order-2 md:w-4/5">
-				<RiskBars />
+				<RiskBars {selectedFactorData} />
 			</div>
+		</div>
+		<div class="text-xs md:w-4/5 md:py-4">
+			Authors’ calculations using University of Essex, Institute for Social and Economic Research
+			(2023) data, other methodological annotations. These could be longer sentences or URL pointing
+			to extrernal resources. Now writing random things.
 		</div>
 	</div>
 </section>

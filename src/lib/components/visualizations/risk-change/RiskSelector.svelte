@@ -15,7 +15,7 @@
 	}
 </script>
 
-<div class="h-[20vh] overflow-scroll md:h-[80vh]">
+<div class="h-[20vh] overflow-scroll md:h-[70vh]">
 	<div class="">
 		{#each keys as key}
 			<button
