@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { scaleLinear, scaleBand } from 'd3-scale';
-	import { max } from 'd3-array';
+	import { max, min } from 'd3-array';
 	let { selectedFactorData } = $props();
 
 	let width = $state(0);
@@ -9,8 +9,16 @@
 
 	const maxPositiveNumber = $derived(
 		max(
-			selectedFactorData.rel.map((d: { final_howmuchcalc1dp: number }) => {
-				return +d.final_howmuchcalc1dp;
+			selectedFactorData.rel.map((d: { riskvaluetosplot_1dp: number }) => {
+				return +d.riskvaluetosplot_1dp;
+			})
+		)
+	);
+
+	const minNegativeNumber = $derived(
+		min(
+			selectedFactorData.rel.map((d: { riskvaluetosplot_1dp: number }) => {
+				return +d.riskvaluetosplot_1dp;
 			})
 		)
 	);
@@ -23,14 +31,16 @@
 	);
 
 	const positiveYScale = $derived(
-		scaleLinear().domain([0, maxPositiveNumber]).range([0, 100]).nice()
+		scaleLinear().domain([minNegativeNumber, maxPositiveNumber]).range([0, 100]).nice()
 	);
 
 	const barShapesForChart = $derived(
-		selectedFactorData.rel.map((d: { final_howmuchcalc1dp: number }, i: number) => {
+		selectedFactorData.rel.map((d: { riskvaluetosplot_1dp: number }, i: number) => {
+			console.log(+d.riskvaluetosplot_1dp < 0);
 			return {
-				y2: positiveYScale(+d.final_howmuchcalc1dp),
-				x: xScale(i)
+				y2: positiveYScale(+d.riskvaluetosplot_1dp),
+				x: xScale(i),
+				isNegative: +d.riskvaluetosplot_1dp < 0
 			};
 		})
 	);
@@ -45,8 +55,25 @@
 	bind:clientHeight={height}
 >
 	<defs>
-		<marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
-			<polygon points="0 0, 10 3.5, 0 7" fill="currentColor" />
+		<marker
+			id="positive-arrowhead"
+			markerWidth="10"
+			markerHeight="10"
+			refX="5"
+			refY="5"
+			orient="auto"
+		>
+			<path d="M 0 1 L 5 5 L 0 9" stroke="currentColor" fill="transparent" />
+		</marker>
+		<marker
+			id="negative-arrowhead"
+			markerWidth="10"
+			markerHeight="10"
+			refX="5"
+			refY="5"
+			orient="auto-start-reverse"
+		>
+			<path d="M 0 1 L 5 5 L 0 9" stroke="currentColor" fill="transparent" />
 		</marker>
 	</defs>
 	<g class="axis">
@@ -54,13 +81,14 @@
 	</g>
 	{#each barShapesForChart as bar}
 		<line
-			y2={bar.y2}
+			y2={bar.isNegative ? height / 2 : bar.y2}
 			x2={bar.x}
-			y1={height / 2}
+			y1={bar.isNegative ? height / 2 + bar.y2 : height / 2}
 			x1={bar.x}
-			stroke="white"
+			stroke={bar.isNegative ? 'red' : 'white'}
 			stroke-width="3"
-			marker-end="url(#arrowhead)"
+			marker-end={bar.isNegative ? '' : 'url(#positive-arrowhead)'}
+			marker-start={bar.isNegative ? 'url(#negative-arrowhead)' : ''}
 		/>
 	{/each}
 </svg>
