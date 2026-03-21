@@ -23,8 +23,6 @@
 		)
 	);
 
-	$inspect(maxPositiveNumber);
-
 	const absMax = $derived(
 		Math.max(Math.abs(maxPositiveNumber ?? 0), Math.abs(minNegativeNumber ?? 0))
 	);
@@ -33,7 +31,7 @@
 		scaleBand()
 			.domain(selectedFactorData.rel.map((d: {}, i: number) => i))
 			.range([marginX, width - marginX * 2])
-			.padding(1)
+			.padding(0.4)
 	);
 
 	const yScale = $derived(
@@ -57,19 +55,21 @@
 	);
 
 	const baseline = $derived(yScale(0));
+
+	$inspect(selectedFactorData);
 </script>
 
 <svg width="100%" class="h-[55vh] md:h-full" bind:clientWidth={width} bind:clientHeight={height}>
 	<defs>
 		<marker
 			id="positive-arrowhead"
-			markerWidth="10"
-			markerHeight="10"
-			refX="5"
-			refY="5"
+			markerWidth="5"
+			markerHeight="5"
+			refX="2.5"
+			refY="2.5"
 			orient="auto"
 		>
-			<path d="M 0 1 L 5 5 L 0 9" stroke="currentColor" fill="transparent" />
+			<path d="M 0 0 L 2.5 2.5 L 0 5" stroke="currentColor" fill="transparent" />
 		</marker>
 		<marker id="zero-arrowhead" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
 			<circle cx="5" cy="5" r="2" fill="currentColor" />
@@ -90,11 +90,11 @@
 					/>
 					<text x={marginX} y={yScale(tick) + 4} text-anchor="end" fill="white">{tick}</text>
 					{#if t === 0}
-						<text x={width} y={yScale(tick) - 10} text-anchor="end" fill="white"
+						<text x={width} y={yScale(tick) - 10} text-anchor="end" fill="white" font-size="10"
 							>Lower Risk (%)</text
 						>
 					{:else if t === yTicks.length - 1}
-						<text x={width} y={yScale(tick) + 20} text-anchor="end" fill="white"
+						<text x={width} y={yScale(tick) + 20} text-anchor="end" fill="white" font-size="10"
 							>Higher Risk (%)</text
 						>
 					{/if}
@@ -109,6 +109,9 @@
 			stroke="white"
 			stroke-width="3"
 		/>
+		<text x={width} y={baseline + 15} text-anchor="end" fill="white" font-size="10"
+			>No meaningful difference from benchmark group (%)</text
+		>
 	{/if}
 	{#each barShapesForChart as bar}
 		<line
