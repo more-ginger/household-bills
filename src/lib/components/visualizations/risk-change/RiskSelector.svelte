@@ -19,19 +19,19 @@
 </script>
 
 <div class="flex overflow-x-auto pb-2 md:block md:h-[70vh] md:overflow-y-scroll">
-	<div class="flex flex-row gap-2 md:flex-col md:gap-0">
+	<div class="flex flex-row gap-2 font-epilogue md:flex-col md:gap-0">
 		{#each keys as key}
 			<button
-				class={`min-h-[44px] flex-shrink-0 rounded-md border px-3 py-2 md:m-2 ${selectedFactor === key ? 'bg-secondary-blue text-primary-blue' : ''}`}
+				class={`min-h-[44px] flex-shrink-0 cursor-pointer rounded-md border px-3 py-2 md:m-2 ${selectedFactor === key ? 'bg-secondary-blue text-primary-blue' : ''}`}
 				onclick={() => changeSelectedGroup(key)}
 			>
-				<div class="flex items-center gap-2 md:border-b md:pl-2">
+				<div class="flex items-center gap-2 md:border-b">
 					<div
-						class={`h-[15px] w-[15px] flex-shrink-0 rounded-xl border  ${selectedFactor === key ? 'bg-red-500' : ''}`}
+						class={`mb-1 h-[12px] w-[12px] flex-shrink-0 rounded-xl border  ${selectedFactor === key ? 'bg-red-500' : ''}`}
 					></div>
 					<div class="font-epilogue whitespace-nowrap md:truncate">{formatLabel(key)}</div>
 				</div>
-				<div class="hidden pl-2 md:block md:text-wrap">
+				<div class="hidden pt-2 pl-2 text-left text-xs md:block md:text-wrap">
 					Benchmark Group: {formatLabel(findBenchmarkGroup(key))}
 				</div>
 			</button>

@@ -26,14 +26,18 @@
 		</div>
 		<div class="flex flex-col md:h-fit md:flex-row">
 			<div class="order-1 md:order-1 md:w-1/5">
-				<div>Risk Factors</div>
+				<div
+					class="flex h-[3rem] w-full justify-self-center rounded-4xl bg-white p-4 font-epilogue leading-[1.3rem] font-normal text-primary-blue uppercase"
+				>
+					Risk Factors
+				</div>
 				<RiskSelector {data} {keys} bind:selectedFactor />
 			</div>
 			<div class="order-2 md:order-2 md:w-4/5">
 				<RiskBars {selectedFactorData} {selectedFactor} />
 			</div>
 		</div>
-		<div class="text-xs md:w-4/5 md:py-4">
+		<div class="text-xs md:w-4/5 md:py-6">
 			Authors’ calculations using University of Essex, Institute for Social and Economic Research
 			(2023) data, other methodological annotations. These could be longer sentences or URL pointing
 			to extrernal resources. Now writing random things.
