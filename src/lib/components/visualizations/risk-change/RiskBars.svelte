@@ -7,53 +7,18 @@
 	let height = $state(0);
 	let marginX = $derived(width / 10);
 
-	const benchmarkIllustration = $state({
-		health: {
-			icon: 'human1-darkblue.webp'
-		},
-		sex: {
-			icon: 'human1-darkblue.webp'
-		},
-		age: {
-			icon: 'human9-darkblue.webp'
-		},
-		ethnicity: {
-			icon: 'human1-darkblue.webp'
-		},
-		'disability-related benefit': {
-			icon: 'human12-darkblue.webp'
-		},
-		carer: {
-			icon: 'human8-darkblue.webp'
-		},
-		'percent of welfare income from welfare state': {
-			icon: 'human1-darkblue.webp'
-		},
-		'household income': {
-			icon: 'human1-darkblue.webp'
-		},
-		'number-of-dependent-children': {
-			icon: 'human4-darkblue.webp'
-		},
-		'housing-tenure': {
-			icon: 'human1-darkblue.webp'
-		},
-		'marital-status': {
-			icon: 'human10-darkblue.webp'
-		},
-		'number-inhousehold': {
-			icon: 'human10-darkblue.webp'
-		},
-		'job-status': {
-			icon: 'human2-darkblue.webp'
-		},
-		disability: {
-			icon: 'human12-darkblue.webp'
-		},
-		'universal-credit': {
-			icon: 'human1-darkblue.webp'
-		}
-	});
+	export const DEFAULT_FACTOR_ICON = 'human1-darkblue.webp';
+
+	export const FACTOR_ICONS: Record<string, string> = {
+		age: 'human9-darkblue.webp',
+		carer: 'human8-darkblue.webp',
+		disability: 'human12-darkblue.webp',
+		'disability-related benefit': 'human12-darkblue.webp',
+		'job-status': 'human2-darkblue.webp',
+		'marital-status': 'human10-darkblue.webp',
+		'number-inhousehold': 'human10-darkblue.webp',
+		'number-of-dependent-children': 'human4-darkblue.webp'
+	};
 
 	const maxPositiveNumber = $derived(
 		max(
@@ -197,7 +162,7 @@
 			<text x={bar.x} y={bar.textY} text-anchor="middle">{bar.value}</text>
 		{/each}
 		<image
-			href={`illustrations/webp/humans/${benchmarkIllustration[selectedFactor].icon}`}
+			href={`illustrations/webp/humans/${FACTOR_ICONS[selectedFactor] ?? DEFAULT_FACTOR_ICON}`}
 			height="70"
 			width="70"
 			x={width - 70}
