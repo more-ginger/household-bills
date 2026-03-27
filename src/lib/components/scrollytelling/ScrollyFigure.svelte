@@ -2,7 +2,7 @@
 	import FigureData from '$lib/data/figure.json';
 
 	let { step } = $props();
-	$inspect('from figure', FigureData['figure-steps'][step]);
+	//$inspect('from figure', FigureData['figure-steps'][step]);
 </script>
 
 <div class="align-center m-auto flex h-full w-6/7 flex-wrap content-center justify-center">

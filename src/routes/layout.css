@@ -33,13 +33,7 @@
 :root {
 	h1 {
 		font-family: var(--font-epilogue);
-		font-weight: 800;
-	}
-
-	h2,
-	div,
-	p {
-		font-weight: 200;
+		/* font-weight: 800; */
 	}
 }
 
