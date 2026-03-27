@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { group, extent, max } from 'd3-array';
-	import { line, curveBasis } from 'd3-shape';
+	import { line, curveMonotoneX } from 'd3-shape';
 	import { scaleLinear } from 'd3-scale';
 	let { selectedFactorData, selectedFactor } = $props();
 
@@ -28,7 +28,6 @@
 		scaleLinear()
 			.domain(xDomain)
 			.range([marginX + 25, width - marginX])
-			.nice()
 	);
 
 	const yScale = $derived(
@@ -39,7 +38,8 @@
 	);
 
 	const yTicks = $derived(width > 0 && height > 0 ? yScale.ticks() : []);
-	const xTicks = $derived(width > 0 && height > 0 ? xScale.ticks() : []);
+	const xTickCount = $derived(width < 400 ? 3 : width < 600 ? 5 : 8);
+	const xTicks = $derived(width > 0 && height > 0 ? xScale.ticks(xTickCount) : []);
 
 	let groupedData = $derived(group(selectedFactorData.trend, (d: { Group: string }) => d.Group));
 
@@ -47,7 +47,7 @@
 		line<{ Year: number; Percentage: number }>()
 			.x((d) => xScale(d.Year))
 			.y((d) => yScale(d.Percentage))
-			.curve(curveBasis)
+			.curve(curveMonotoneX)
 	);
 
 	const lineData = $derived(
@@ -87,7 +87,14 @@
 					<path d={line.path} stroke="white" fill="none" stroke-width="3" />
 				{/each}
 				{#each xTicks as xtick}
-					<text x={xScale(xtick)} y={height - 10} fill="white">{xtick}</text>
+					<line
+						x1={xScale(xtick)}
+						x2={xScale(xtick)}
+						y1={height - 35}
+						y2={35}
+						stroke="white"
+					></line>
+					<text x={xScale(xtick)} y={height - 10} fill="white" text-anchor="middle">{xtick}</text>
 				{/each}
 				{#each yTicks as ytick}
 					<line x1={marginX} x2={width} y1={yScale(ytick) + 5} y2={yScale(ytick) + 5} stroke="white"

@@ -4,7 +4,7 @@
 	import RiskSelector from './visualizations/risk-change/RiskSelector.svelte';
 	import RiskLines from './visualizations/risk-trends/RiskLines.svelte';
 
-	let isFactors = $state(false);
+	let isFactors = $state(true);
 
 	const formatLabel = (str: string) => {
 		const spaced = str.replace(/-/g, ' ');
@@ -22,7 +22,16 @@
 	<div class="m-auto w-6/7 pb-8 md:w-6/7">
 		<div class="flex flex-col md:h-fit md:flex-row">
 			<div class="md:w-1/5">
-				<div><button class="bg-red-700">Is factors? {isFactors}</button></div>
+				<div class="mb-2 flex w-full rounded-3xl border">
+					<button
+						class={`grow rounded-3xl ${isFactors ? 'bg-white text-primary-blue' : ' bg-primary-blue text-white'} p-2`}
+						onclick={() => (isFactors = true)}>Risk Factors</button
+					>
+					<button
+						class={`grow rounded-3xl ${isFactors ? ' bg-primary-blue text-white' : 'bg-white text-primary-blue'} p-2`}
+						onclick={() => (isFactors = false)}>Risk Trends</button
+					>
+				</div>
 				<RiskSelector {data} {keys} {isFactors} bind:selectedFactor />
 			</div>
 			<div class="flex h-[100vh] flex-col md:h-[75vh] md:w-4/5">
