@@ -2,6 +2,9 @@
 	import RiskBars from './visualizations/risk-change/RiskBars.svelte';
 	import data from '$lib/data/data.json';
 	import RiskSelector from './visualizations/risk-change/RiskSelector.svelte';
+	import RiskLines from './visualizations/risk-trends/RiskLines.svelte';
+
+	let isFactors = $state(false);
 
 	const formatLabel = (str: string) => {
 		const spaced = str.replace(/-/g, ' ');
@@ -16,15 +19,11 @@
 </script>
 
 <section class="bg-primary-blue">
-	<div class="m-auto w-6/7 pb-8 md:w-5/7">
+	<div class="m-auto w-6/7 pb-8 md:w-6/7">
 		<div class="flex flex-col md:h-fit md:flex-row">
 			<div class="md:w-1/5">
-				<div
-					class="my-6 flex h-[3rem] w-full justify-self-center rounded-4xl bg-white p-4 font-epilogue leading-[1.3rem] font-normal text-primary-blue uppercase md:m-0"
-				>
-					Risk Factors
-				</div>
-				<RiskSelector {data} {keys} bind:selectedFactor />
+				<div><button class="bg-red-700">Is factors? {isFactors}</button></div>
+				<RiskSelector {data} {keys} {isFactors} bind:selectedFactor />
 			</div>
 			<div class="flex h-[100vh] flex-col md:h-[75vh] md:w-4/5">
 				<div class="shrink-0 md:flex md:pl-16">
@@ -32,10 +31,14 @@
 						<h1>{formatLabel(selectedFactor)}</h1>
 						<p>{selectedFactorDescription}</p>
 					</div>
-					<div class="bg-red-100 md:w-1/5">Switch visualization</div>
 				</div>
+
 				<div class="my-4 h-full md:my-0">
-					<RiskBars {selectedFactorData} {selectedFactor} />
+					{#if isFactors}
+						<RiskBars {selectedFactorData} {selectedFactor} />
+					{:else}
+						<RiskLines {selectedFactorData} {selectedFactor} />
+					{/if}
 				</div>
 			</div>
 		</div>
