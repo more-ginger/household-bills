@@ -12,7 +12,7 @@
 	};
 
 	const keys = Object.keys(data) as Array<keyof typeof data>;
-	let selectedFactor = $state<keyof typeof data>(keys[3]);
+	let selectedFactor = $state<keyof typeof data>(keys[0]);
 
 	let selectedFactorData = $derived(data[selectedFactor]);
 	let selectedFactorDescription = $derived(selectedFactorData.description);

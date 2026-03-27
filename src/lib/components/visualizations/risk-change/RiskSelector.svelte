@@ -16,8 +16,6 @@
 	function changeSelectedGroup(key: string) {
 		selectedFactor = key;
 	}
-
-	$inspect(data);
 </script>
 
 <div class="flex overflow-x-auto pb-2 md:block md:h-[70vh] md:overflow-y-scroll">
