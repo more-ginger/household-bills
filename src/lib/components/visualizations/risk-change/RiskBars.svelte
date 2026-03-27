@@ -41,8 +41,8 @@
 	}
 
 	// ── Responsive layout helpers ────────────────────────────────────────────
-	// Below 500px the illustration is hidden, so reclaim that right margin for bars
-	const xRangeEnd = $derived(width < 500 ? width - marginX : width - marginX * 2);
+	// Below 700px the illustration is hidden, so reclaim that right margin for bars
+	const xRangeEnd = $derived(width < 700 ? width : width - marginX * 2);
 	// Proportional top/bottom padding so bars never touch the SVG edges
 	const yPad = $derived(Math.max(20, height * 0.05));
 
@@ -50,7 +50,7 @@
 	const maxPositiveNumber = $derived(
 		max(
 			selectedFactorData.rel.map((d: { riskvaluetosplot_1dp: number }) => {
-				return +d.riskvaluetosplot_1dp;
+				return +d.riskvaluetosplot_1dp !== 0 ? +d.riskvaluetosplot_1dp : 80;
 			})
 		)
 	);
@@ -58,7 +58,7 @@
 	const minNegativeNumber = $derived(
 		min(
 			selectedFactorData.rel.map((d: { riskvaluetosplot_1dp: number }) => {
-				return +d.riskvaluetosplot_1dp;
+				return +d.riskvaluetosplot_1dp !== 0 ? +d.riskvaluetosplot_1dp : -80;
 			})
 		)
 	);
@@ -66,6 +66,8 @@
 	const absMax = $derived(
 		Math.max(Math.abs(maxPositiveNumber ?? 0), Math.abs(minNegativeNumber ?? 0))
 	);
+
+	$inspect(maxPositiveNumber ?? 0);
 
 	const xScale = $derived(
 		scaleBand()
@@ -120,13 +122,19 @@
 </script>
 
 {#if !hasValidData}
-	<div class="flex h-[55vh] items-center justify-center md:h-full">
+	<div class="flex h-full min-h-0 flex-1 items-center justify-center">
 		<p class="text-white opacity-60">No data available for this risk factor.</p>
 	</div>
 {:else}
 	<!-- Wrapper needed so the absolute-positioned overlays are relative to the chart -->
-	<div class="relative h-[55vh] md:h-full">
-		<svg width="100%" height="100%" bind:clientWidth={width} bind:clientHeight={height}>
+	<div class="relative h-full min-h-0 flex-1">
+		<svg
+			class="font-epilogue"
+			width="100%"
+			height="100%"
+			bind:clientWidth={width}
+			bind:clientHeight={height}
+		>
 			<defs>
 				<marker
 					id="positive-arrowhead"
@@ -165,11 +173,11 @@
 							/>
 							<text x={marginX} y={yScale(tick) + 4} text-anchor="end" fill="white">{tick}</text>
 							<!-- Risk direction labels hidden on narrow screens — too long to render cleanly -->
-							{#if t === 0 && width >= 500}
+							{#if t === 0}
 								<text x={width} y={yScale(tick) - 10} text-anchor="end" fill="white" font-size="10"
 									>Lower Risk (%)</text
 								>
-							{:else if t === yTicks.length - 1 && width >= 500}
+							{:else if t === yTicks.length - 1}
 								<text x={width} y={yScale(tick) + 20} text-anchor="end" fill="white" font-size="10"
 									>Higher Risk (%)</text
 								>
@@ -233,9 +241,9 @@
 					-->
 					{#if bar.truncatedLabel && !(hoveredIndex === i)}
 						<text
-							x={bar.x}
-							y={baseline + 10}
-							transform={`rotate(90, ${bar.x}, ${baseline + 10})`}
+							x={bar.x - 5}
+							y={bar.isNegative ? baseline - 10 : baseline + 10}
+							transform={`rotate(90, ${bar.x - 5}, ${bar.isNegative ? baseline - 10 : baseline + 10})`}
 							text-anchor={bar.isNegative ? 'end' : 'start'}
 							fill="white"
 							font-size={LABEL_FONT_SIZE}
@@ -244,26 +252,26 @@
 					{/if}
 				</g>
 			{/each}
-
-			<image
-				href={`illustrations/webp/humans/${FACTOR_ICONS[selectedFactor] ?? DEFAULT_FACTOR_ICON}`}
-				height="70"
-				width="70"
-				x={width - 70}
-				y={baseline - 70}
-			/>
+			{#if width > 700}
+				<image
+					href={`illustrations/webp/humans/${FACTOR_ICONS[selectedFactor] ?? DEFAULT_FACTOR_ICON}`}
+					height="70"
+					width="70"
+					x={width - 70}
+					y={baseline - 70}
+				/>
+			{/if}
 		</svg>
-
 		<!-- Always-visible numeric value pills, one per bar.
 		     pillY is clamped so pills never escape the wrapper's top/bottom edge. -->
 		{#each barShapesForChart as bar}
 			<div
-				class="pointer-events-none absolute z-10 rounded bg-white px-2 py-1 font-epilogue text-xs text-accent-red shadow"
+				class="pointer-events-none absolute z-10 rounded border border-primary-blue bg-white px-1 pt-1 font-epilogue text-xs text-accent-red shadow"
 				style="left: {bar.x}px; top: {bar.pillY}px; transform: translate(-50%, {bar.isNegative
 					? '15px'
 					: 'calc(-100% - 15px)'})"
 			>
-				{bar.value}%
+				<p>{bar.value}%</p>
 			</div>
 		{/each}
 
