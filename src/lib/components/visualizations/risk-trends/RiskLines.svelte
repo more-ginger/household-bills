@@ -1,11 +1,12 @@
 <script lang="ts">
 	import { group, extent, max } from 'd3-array';
-	import { line } from 'd3-shape';
+	import { line, curveBasis } from 'd3-shape';
 	import { scaleLinear } from 'd3-scale';
 	let { selectedFactorData, selectedFactor } = $props();
 
 	let width = $state(0);
 	let height = $state(0);
+	let marginX = 40;
 
 	let hoveredIndex = $state<number | null>(null);
 
@@ -23,13 +24,22 @@
 		max(selectedFactorData.trend.map((d: { Percentage: number }) => d.Percentage))
 	);
 
-	const xScale = $derived(scaleLinear().domain(xDomain).range([0, width]));
+	const xScale = $derived(
+		scaleLinear()
+			.domain(xDomain)
+			.range([marginX + 25, width - marginX])
+			.nice()
+	);
 
 	const yScale = $derived(
 		scaleLinear()
-			.domain([0, yMax + 10])
-			.range([height, 100])
+			.domain([0, yMax + 5])
+			.range([height - 40, 30])
+			.nice()
 	);
+
+	const yTicks = $derived(width > 0 && height > 0 ? yScale.ticks() : []);
+	const xTicks = $derived(width > 0 && height > 0 ? xScale.ticks() : []);
 
 	let groupedData = $derived(group(selectedFactorData.trend, (d: { Group: string }) => d.Group));
 
@@ -37,6 +47,7 @@
 		line<{ Year: number; Percentage: number }>()
 			.x((d) => xScale(d.Year))
 			.y((d) => yScale(d.Percentage))
+			.curve(curveBasis)
 	);
 
 	const lineData = $derived(
@@ -65,7 +76,7 @@
 {:else}
 	<div class="relative h-full min-h-0 flex-1">
 		<svg
-			class="bg-red-500 font-epilogue"
+			class="font-epilogue"
 			width="100%"
 			height="100%"
 			bind:clientWidth={width}
@@ -74,6 +85,14 @@
 			{#if width > 0 && height > 0}
 				{#each lineData as line}
 					<path d={line.path} stroke="white" fill="none" stroke-width="3" />
+				{/each}
+				{#each xTicks as xtick}
+					<text x={xScale(xtick)} y={height - 10} fill="white">{xtick}</text>
+				{/each}
+				{#each yTicks as ytick}
+					<line x1={marginX} x2={width} y1={yScale(ytick) + 5} y2={yScale(ytick) + 5} stroke="white"
+					></line>
+					<text x={marginX} y={yScale(ytick)} fill="white">{ytick}</text>
 				{/each}
 				<!-- Chart content goes here -->
 			{/if}
