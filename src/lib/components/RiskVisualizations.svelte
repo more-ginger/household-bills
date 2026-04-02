@@ -22,13 +22,13 @@
 	<div class="m-auto w-6/7 pb-8 md:w-6/7">
 		<div class="flex flex-col md:h-fit md:flex-row">
 			<div class="md:w-1/5">
-				<div class="mb-2 flex w-full rounded-3xl border">
+				<div class="my-6 flex w-full rounded-3xl border md:mb-2">
 					<button
-						class={`grow rounded-3xl ${isFactors ? 'bg-white text-primary-blue' : ' bg-primary-blue text-white'} p-2`}
+						class={`grow cursor-pointer rounded-3xl ${isFactors ? 'bg-white text-primary-blue' : ' bg-primary-blue text-white'} p-2`}
 						onclick={() => (isFactors = true)}>Risk Factors</button
 					>
 					<button
-						class={`grow rounded-3xl ${isFactors ? ' bg-primary-blue text-white' : 'bg-white text-primary-blue'} p-2`}
+						class={`grow cursor-pointer rounded-3xl ${isFactors ? ' bg-primary-blue text-white' : 'bg-white text-primary-blue'} p-2`}
 						onclick={() => (isFactors = false)}>Risk Trends</button
 					>
 				</div>

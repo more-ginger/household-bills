@@ -93,13 +93,25 @@
 						y1={height - 35}
 						y2={35}
 						stroke="white"
+						stroke-dasharray="1 2"
 					></line>
 					<text x={xScale(xtick)} y={height - 10} fill="white" text-anchor="middle">{xtick}</text>
 				{/each}
-				{#each yTicks as ytick}
-					<line x1={marginX} x2={width} y1={yScale(ytick) + 5} y2={yScale(ytick) + 5} stroke="white"
+				{#each yTicks as ytick, t}
+					<line
+						stroke-dasharray="1 2"
+						x1={marginX}
+						x2={width}
+						y1={yScale(ytick) + 5}
+						y2={yScale(ytick) + 5}
+						stroke="white"
 					></line>
 					<text x={marginX} y={yScale(ytick)} fill="white">{ytick}</text>
+					{#if t === yTicks.length - 1}
+						<text x={marginX + 25} y={yScale(ytick)} text-anchor="start" fill="white" font-size="10"
+							>Increase in Risk (%)</text
+						>
+					{/if}
 				{/each}
 				<!-- Chart content goes here -->
 			{/if}
