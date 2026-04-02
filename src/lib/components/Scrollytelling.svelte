@@ -37,9 +37,11 @@
 	});
 </script>
 
-<div class="relative pb-20">
+<div class="relative pb-20 md:pb-0">
 	<figure class="sticky top-0 h-dvh w-full">
 		<ScrollyFigure {step} />
 	</figure>
-	<article class="relative -mt-[100dvh]"><ScrollyBlocks rawScrollyText={Text} {onTextRender} /></article>
+	<article class="relative -mt-[100dvh]">
+		<ScrollyBlocks rawScrollyText={Text} {onTextRender} />
+	</article>
 </div>

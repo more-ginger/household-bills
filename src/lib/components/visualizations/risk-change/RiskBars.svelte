@@ -67,8 +67,6 @@
 		Math.max(Math.abs(maxPositiveNumber ?? 0), Math.abs(minNegativeNumber ?? 0))
 	);
 
-	$inspect(maxPositiveNumber ?? 0);
-
 	const xScale = $derived(
 		scaleBand()
 			.domain(selectedFactorData.rel.map((d: {}, i: number) => i))
