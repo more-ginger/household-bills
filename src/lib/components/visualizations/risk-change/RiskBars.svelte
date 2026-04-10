@@ -7,17 +7,17 @@
 	let height = $state(0);
 	let marginX = $derived(width / 10);
 
-	export const DEFAULT_FACTOR_ICON = 'human1-darkblue.webp';
+	export const DEFAULT_FACTOR_ICON = 'human7-blue.webp';
 
 	export const FACTOR_ICONS: Record<string, string> = {
-		age: 'human9-darkblue.webp',
-		carer: 'human8-darkblue.webp',
+		age: 'human3-darkblue.webp',
+		carer: 'human4-darkblue.webp',
 		disability: 'human12-darkblue.webp',
 		'disability-related benefit': 'human12-darkblue.webp',
-		'job-status': 'human2-darkblue.webp',
+		'job-status': 'human8-darkblue.webp',
 		'marital-status': 'human10-darkblue.webp',
-		'number-inhousehold': 'human10-darkblue.webp',
-		'number-of-dependent-children': 'human4-darkblue.webp'
+		'number-inhousehold': 'human6-darkblue.webp',
+		'number-of-dependent-children': 'human6-darkblue.webp'
 	};
 
 	// ── Label helpers ─────────────────────────────────────────────────────────
@@ -253,10 +253,10 @@
 			{#if width > 700}
 				<image
 					href={`illustrations/webp/humans/${FACTOR_ICONS[selectedFactor] ?? DEFAULT_FACTOR_ICON}`}
-					height="70"
-					width="70"
-					x={width - 70}
-					y={baseline - 70}
+					height="100"
+					width="100"
+					x={width - 100}
+					y={baseline - 100}
 				/>
 			{/if}
 		</svg>
