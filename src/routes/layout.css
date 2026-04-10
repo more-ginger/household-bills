@@ -44,7 +44,7 @@
 
 .step-child {
 	min-height: 80px;
-	background-color: var(--color-primary-blue);
+	background-color: var(--color-tertiary-blue);
 	border: 1px solid white;
 	border-radius: 10px;
 	width: 30%;
@@ -52,4 +52,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	padding: 2rem;
+	text-align: center;
+	font-size: 1.25rem;
 }
