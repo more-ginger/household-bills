@@ -159,6 +159,14 @@
 			"urls": ["/illustrations/webp/humans/human5-darkblue-accent.webp"]
 		},
 		{
+			"title": "chart",
+			"urls": ["/illustrations/webp/compositions/chart.svg"]
+		},
+		{
+			"title": "factors",
+			"urls": []
+		},
+		{
 			"title": "population-selection-fear",
 			"css": "h-50",
 			"urls": [
@@ -170,14 +178,6 @@
 				"/illustrations/webp/humans/human11-darkblue-accent.webp",
 				"/illustrations/webp/humans/human6-darkblue-accent.webp"
 			]
-		},
-		{
-			"title": "factors",
-			"urls": []
-		},
-		{
-			"title": "affected-groups",
-			"urls": []
 		},
 		{
 			"title": "population",
