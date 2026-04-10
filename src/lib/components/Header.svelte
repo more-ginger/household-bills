@@ -1,8 +1,12 @@
+<script>
+	import { base } from '$app/paths';
+</script>
+
 <section class="h-dvh min-h-dvh">
 	<div class="flex h-full">
 		<div class="relative m-auto w-4/5 self-center text-center md:w-3/7">
 			<div class="absolute -right-10 bottom-45 z-0 w-30 md:bottom-25 md:w-40">
-				<img src="illustrations/webp/objects/bill.webp" />
+				<img src="{base}/illustrations/webp/objects/bill.webp" />
 			</div>
 			<div class="relative z-10">
 				<h1 class="text-4xl font-bold md:text-6xl">Falling Behind on Household Bills</h1>
@@ -39,13 +43,13 @@
 			</p>
 			<div class="pt-8">
 				<button class="flex items-center gap-2 p-2"
-					><img class="h-[1em] w-auto" src="icons/arrow-down.svg" />Scroll down to introduction</button
+					><img class="h-[1em] w-auto" src="{base}/icons/arrow-down.svg" />Scroll down to introduction</button
 				>
 				<button class="flex items-center gap-2 p-2"
-					><img class="h-[1em] w-auto" src="icons/arrow-down.svg" />Go to Risk Factors visualization</button
+					><img class="h-[1em] w-auto" src="{base}/icons/arrow-down.svg" />Go to Risk Factors visualization</button
 				>
 				<button class="flex items-center gap-2 p-2"
-					><img class="h-[1em] w-auto" src="icons/arrow-down.svg" />Go to Risk Trends visualization</button
+					><img class="h-[1em] w-auto" src="{base}/icons/arrow-down.svg" />Go to Risk Trends visualization</button
 				>
 			</div>
 		</div>
@@ -58,11 +62,11 @@
 			<div class="pt-6">
 				<p class="text-xl">Ethnic minority groups disproportionately affected since 2009</p>
 				<div class="my-8 flex min-h-50 flex-wrap">
-					<img class="h-50 w-auto shrink-0" src="illustrations/webp/humans/human1-blue.webp" />
-					<img class="h-50 w-auto shrink-0" src="illustrations/webp/humans/human10-darkblue.webp" />
-					<img class="h-50 w-auto shrink-0" src="illustrations/webp/humans/human6-blue.webp" />
-					<img class="h-50 w-auto shrink-0" src="illustrations/webp/humans/human7-darkblue.webp" />
-					<img class="h-50 w-auto shrink-0" src="illustrations/webp/humans/human8-blue.webp" />
+					<img class="h-50 w-auto shrink-0" src="{base}/illustrations/webp/humans/human1-blue.webp" />
+					<img class="h-50 w-auto shrink-0" src="{base}/illustrations/webp/humans/human10-darkblue.webp" />
+					<img class="h-50 w-auto shrink-0" src="{base}/illustrations/webp/humans/human6-blue.webp" />
+					<img class="h-50 w-auto shrink-0" src="{base}/illustrations/webp/humans/human7-darkblue.webp" />
+					<img class="h-50 w-auto shrink-0" src="{base}/illustrations/webp/humans/human8-blue.webp" />
 				</div>
 			</div>
 			<div class="pt-2">
@@ -74,7 +78,7 @@
 						<div class="flex h-45 items-center justify-center overflow-hidden">
 							<img
 								class="h-full w-full object-contain p-4"
-								src="illustrations/webp/humans/human12-darkblue-accent.webp"
+								src="{base}/illustrations/webp/humans/human12-darkblue-accent.webp"
 							/>
 						</div>
 						<p class="text-center">Disability</p>
@@ -83,7 +87,7 @@
 						<div class="flex h-45 items-center justify-center overflow-hidden">
 							<img
 								class="h-full w-full object-contain p-4"
-								src="illustrations/webp/humans/human4-darkblue-accent.webp"
+								src="{base}/illustrations/webp/humans/human4-darkblue-accent.webp"
 							/>
 						</div>
 						<p class="text-center">Caring for others in household</p>
@@ -92,7 +96,7 @@
 						<div class="flex h-45 items-center justify-center overflow-hidden">
 							<img
 								class="h-full w-full object-contain p-6"
-								src="illustrations/webp/objects/universal-credit.webp"
+								src="{base}/illustrations/webp/objects/universal-credit.webp"
 							/>
 						</div>
 						<p class="text-center">Universal Credit</p>
@@ -101,7 +105,7 @@
 						<div class="flex h-45 items-center justify-center overflow-hidden">
 							<img
 								class="h-full w-full object-contain p-4"
-								src="illustrations/webp/objects/bill.webp"
+								src="{base}/illustrations/webp/objects/bill.webp"
 							/>
 						</div>
 						<p class="text-center">
