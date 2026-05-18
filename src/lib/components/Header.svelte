@@ -133,7 +133,7 @@
 								alt=""
 							/>
 						</div>
-						<p class="text-center">Disability</p>
+						<p class="text-center text-xs">Disability</p>
 					</div>
 					<div class="flex w-1/2 flex-col md:w-1/4">
 						<div class="flex h-45 items-center justify-center overflow-hidden">
@@ -143,7 +143,7 @@
 								alt=""
 							/>
 						</div>
-						<p class="text-center">Caring for others in household</p>
+						<p class="text-center text-xs">Caring for others in household</p>
 					</div>
 					<div class="flex w-1/2 flex-col md:w-1/4">
 						<div class="flex h-45 items-center justify-center overflow-hidden">
@@ -153,7 +153,7 @@
 								alt=""
 							/>
 						</div>
-						<p class="text-center">Universal Credit</p>
+						<p class="text-center text-xs">Universal Credit</p>
 					</div>
 					<div class="flex w-1/2 flex-col md:w-1/4">
 						<div class="flex h-45 items-center justify-center overflow-hidden">

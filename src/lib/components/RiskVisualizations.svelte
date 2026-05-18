@@ -72,8 +72,8 @@
 			</div>
 		</div>
 		<div class="text-xs md:w-4/5 md:py-6">
-			Authors’ calculations using University of Essex, Institute for Social and Economic Research
-			(2023) data.
+			Data: University of Essex, Institute for Social and Economic Research (2023). Authors’
+			calculations.
 		</div>
 	</div>
 </section>

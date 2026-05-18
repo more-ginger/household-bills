@@ -145,13 +145,13 @@
 		},
 		{
 			"title": "single-person",
-			"css": "h-80",
-			"urls": ["/illustrations/webp/humans/human5-darkblue.webp"]
+			"css": "h-120",
+			"urls": ["/illustrations/webp/compositions/slide-6.webp"]
 		},
 		{
 			"title": "single-person-provisions",
-			"css": "h-80",
-			"urls": ["/illustrations/webp/humans/human5-darkblue.webp"]
+			"css": "h-120",
+			"urls": ["/illustrations/webp/compositions/slide-7.webp"]
 		},
 		{
 			"title": "single-person-fear",
@@ -164,11 +164,12 @@
 		},
 		{
 			"title": "factors",
-			"urls": []
+			"css": "h-250",
+			"urls": ["/illustrations/webp/compositions/slide-10.webp"]
 		},
 		{
 			"title": "population-selection-fear",
-			"css": "h-50",
+			"css": "h-70",
 			"urls": [
 				"/illustrations/webp/humans/human5-darkblue-accent.webp",
 				"/illustrations/webp/humans/human12-darkblue-accent.webp",
