@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { scaleLinear, scaleBand } from 'd3-scale';
 	import { max, min } from 'd3-array';
+	import { tweened } from 'svelte/motion';
+	import { cubicOut } from 'svelte/easing';
 	let { selectedFactorData, selectedFactor } = $props();
 
 	let width = $state(0);
@@ -29,6 +31,8 @@
 		hoveredIndex = null;
 	});
 
+	$inspect(selectedFactor);
+
 	const LABEL_FONT_SIZE = 12;
 	const LABEL_CHAR_PX = 6; // approximate px width per character at font-size 12
 
@@ -50,7 +54,7 @@
 	const maxPositiveNumber = $derived(
 		max(
 			selectedFactorData.rel.map((d: { riskvaluetosplot_1dp: number }) => {
-				return +d.riskvaluetosplot_1dp !== 0 ? +d.riskvaluetosplot_1dp : 80;
+				return +d.riskvaluetosplot_1dp !== 0 ? +d.riskvaluetosplot_1dp : 50;
 			})
 		)
 	);
@@ -58,7 +62,7 @@
 	const minNegativeNumber = $derived(
 		min(
 			selectedFactorData.rel.map((d: { riskvaluetosplot_1dp: number }) => {
-				return +d.riskvaluetosplot_1dp !== 0 ? +d.riskvaluetosplot_1dp : -80;
+				return +d.riskvaluetosplot_1dp !== 0 ? +d.riskvaluetosplot_1dp : -50;
 			})
 		)
 	);
@@ -66,6 +70,12 @@
 	const absMax = $derived(
 		Math.max(Math.abs(maxPositiveNumber ?? 0), Math.abs(minNegativeNumber ?? 0))
 	);
+
+	const animatedDomainMax = tweened(50, { duration: 500, easing: cubicOut });
+
+	$effect(() => {
+		animatedDomainMax.set(Math.max(50 * 1.15, absMax * 1.15));
+	});
 
 	const xScale = $derived(
 		scaleBand()
@@ -76,9 +86,8 @@
 
 	const yScale = $derived(
 		scaleLinear()
-			.domain([-absMax * 1.15, absMax * 1.15])
+			.domain([-$animatedDomainMax, $animatedDomainMax])
 			.range([height - yPad, yPad])
-			.nice()
 	);
 
 	const baseline = $derived(yScale(0));
@@ -191,12 +200,6 @@
 					stroke="white"
 					stroke-width="3"
 				/>
-				<!-- Baseline annotation hidden on narrow screens -->
-				{#if width >= 500}
-					<text x={width} y={baseline + 15} text-anchor="end" fill="white" font-size="10"
-						>No meaningful difference from benchmark group (%)</text
-					>
-				{/if}
 			{/if}
 
 			{#each barShapesForChart as bar, i}
@@ -258,18 +261,28 @@
 					x={width - 100}
 					y={baseline - 100}
 				/>
+				{#if selectedFactorData.rel[0]['ref category (compared to)']}
+					<foreignObject width="120" height="200" x={width - 120} y={baseline + 6}>
+						<div
+							class="rounded border border-primary-blue bg-white px-1 pt-1 font-epilogue text-xs text-accent-red shadow"
+							style="text-align: center;"
+						>
+							{selectedFactorData.rel[0]['ref category (compared to)']}
+						</div>
+					</foreignObject>
+				{/if}
 			{/if}
 		</svg>
 		<!-- Always-visible numeric value pills, one per bar.
 		     pillY is clamped so pills never escape the wrapper's top/bottom edge. -->
 		{#each barShapesForChart as bar}
 			<div
-				class="pointer-events-none absolute z-10 rounded border border-primary-blue bg-white px-1 pt-1 font-epilogue text-xs text-accent-red shadow"
+				class="pointer-events-none absolute z-10 rounded border-primary-blue bg-white px-1 pt-1 font-epilogue text-xs text-accent-red shadow"
 				style="left: {bar.x}px; top: {bar.pillY}px; transform: translate(-50%, {bar.isNegative
 					? '15px'
 					: 'calc(-100% - 15px)'})"
 			>
-				<p>{bar.value}%</p>
+				<p>{bar.isNegative ? `- ${bar.value}` : `+ ${bar.value}`}%</p>
 			</div>
 		{/each}
 
