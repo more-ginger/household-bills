@@ -178,7 +178,7 @@
 								stroke-width="1"
 								stroke-dasharray="1 2"
 							/>
-							<text x={marginX} y={yScale(tick) + 4} text-anchor="end" fill="white">{tick}</text>
+							<text x={marginX} y={yScale(tick) + 4} text-anchor="end" fill="white">{tick}%</text>
 							<!-- Risk direction labels hidden on narrow screens — too long to render cleanly -->
 							{#if t === 0}
 								<text x={width} y={yScale(tick) - 10} text-anchor="end" fill="white" font-size="10"
