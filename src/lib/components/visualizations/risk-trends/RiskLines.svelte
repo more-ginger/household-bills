@@ -9,11 +9,13 @@
 	let marginX = 40;
 
 	let hoveredIndex = $state<number | null>(null);
+	let hoveredGroup = $state<string | null>(null);
 
 	// Reset tooltip whenever the selected factor changes
 	$effect(() => {
 		selectedFactor;
 		hoveredIndex = null;
+		hoveredGroup = null;
 	});
 
 	const xDomain: [number, number] = $derived(
@@ -51,10 +53,43 @@
 	);
 
 	const lineData = $derived(
-		[...groupedData.entries()].map(([key, values]) => ({
-			group: key,
-			path: lineGenerator(values)
-		}))
+		[...groupedData.entries()].map(([key, values]) => {
+			const sorted = [...values].sort(
+				(a: { Year: number }, b: { Year: number }) => a.Year - b.Year
+			);
+			const first = sorted[0];
+			const last = sorted[sorted.length - 1];
+			const increasing = sorted.length > 1 && last.Percentage > first.Percentage;
+			const change = sorted.length > 1 ? +(last.Percentage - first.Percentage).toFixed(1) : 0;
+			const changeLabel = (change >= 0 ? '+' : '') + change + '%';
+			return {
+				group: key,
+				path: lineGenerator(values),
+				increasing,
+				gradientId: `line-gradient-${key.replace(/[^a-zA-Z0-9]/g, '-')}`,
+				lastX: xScale(last.Year),
+				lastY: yScale(last.Percentage),
+				firstY: yScale(first.Percentage),
+				changeLabel
+			};
+		})
+	);
+
+	const groupLabels = $derived(
+		(() => {
+			const items = lineData.map((l) => ({
+				group: l.group,
+				x: xScale(xDomain[0]) + 8,
+				y: l.firstY
+			}));
+			const sorted = [...items].sort((a, b) => a.y - b.y);
+			const resolved: { group: string; x: number; y: number }[] = [];
+			for (const item of sorted) {
+				const prev = resolved[resolved.length - 1];
+				resolved.push({ ...item, y: prev ? Math.max(item.y, prev.y + 16) : item.y });
+			}
+			return resolved;
+		})()
 	);
 
 	$inspect(lineData);
@@ -83,8 +118,76 @@
 			bind:clientHeight={height}
 		>
 			{#if width > 0 && height > 0}
+				<defs>
+					{#each lineData as line}
+						<linearGradient
+							id={line.gradientId}
+							gradientUnits="userSpaceOnUse"
+							x1={xScale(xDomain[0])}
+							y1="0"
+							x2={xScale(xDomain[1])}
+							y2="0"
+						>
+							<stop offset="0%" stop-color="white" />
+							<stop offset="100%" stop-color={line.increasing ? '#FF5555' : 'white'} />
+						</linearGradient>
+					{/each}
+				</defs>
 				{#each lineData as line}
-					<path d={line.path} stroke="white" fill="none" stroke-width="3" />
+					{@const dimmed = hoveredGroup !== null && hoveredGroup !== line.group}
+					<g
+						opacity={dimmed ? 0.3 : 1}
+						style="transition: opacity 200ms ease"
+						onmouseenter={() => (hoveredGroup = line.group)}
+						onmouseleave={() => (hoveredGroup = null)}
+						ontouchstart={(e) => {
+							e.preventDefault();
+							hoveredGroup = hoveredGroup === line.group ? null : line.group;
+						}}
+						role="img"
+						aria-label={line.group}
+					>
+						<!-- Wide transparent hit area -->
+						<path d={line.path} stroke="#0087b8" stroke-width="6" fill="none" />
+						<path d={line.path} stroke="url(#{line.gradientId})" fill="none" stroke-width="3" />
+					</g>
+				{/each}
+				{#each groupLabels as label}
+					{@const dimmed = hoveredGroup !== null && hoveredGroup !== label.group}
+					<foreignObject
+						x={label.x - 10}
+						y={label.y - 5}
+						width="300"
+						height="24"
+						overflow="visible"
+						opacity={dimmed ? 0.3 : 1}
+						style="transition: opacity 200ms ease"
+					>
+						<div
+							class="pointer-events-none rounded border border-primary-blue bg-white px-1 pt-1 font-epilogue text-xs text-accent-red shadow"
+							style="width: fit-content; white-space: nowrap;"
+						>
+							{label.group}
+						</div>
+					</foreignObject>
+				{/each}
+				{#each lineData as line}
+					{@const dimmed = hoveredGroup !== null && hoveredGroup !== line.group}
+					<foreignObject
+						x={line.lastX - 6}
+						y={line.lastY - 10}
+						width="70"
+						height="24"
+						opacity={dimmed ? 0.3 : 1}
+						style="transition: opacity 200ms ease"
+					>
+						<div
+							class="pointer-events-none rounded border border-primary-blue bg-white px-1 pt-1 font-epilogue text-xs text-accent-red shadow"
+							style="width: fit-content; white-space: nowrap;"
+						>
+							{line.changeLabel}
+						</div>
+					</foreignObject>
 				{/each}
 				{#each xTicks as xtick}
 					<line
@@ -106,9 +209,9 @@
 						y2={yScale(ytick) + 5}
 						stroke="white"
 					></line>
-					<text x={marginX} y={yScale(ytick)} fill="white">{ytick}</text>
+					<text x={marginX} y={yScale(ytick)} fill="white">{ytick}%</text>
 					{#if t === yTicks.length - 1}
-						<text x={marginX + 25} y={yScale(ytick)} text-anchor="start" fill="white" font-size="10"
+						<text x={marginX + 35} y={yScale(ytick)} text-anchor="start" fill="white" font-size="10"
 							>Increase in Risk (%)</text
 						>
 					{/if}
@@ -116,15 +219,5 @@
 				<!-- Chart content goes here -->
 			{/if}
 		</svg>
-
-		<!-- Variable tooltip — shown on hover (desktop) or tap (mobile).
-		     left/top to be wired to line chart data points -->
-		{#if hoveredIndex !== null}
-			<div
-				class="pointer-events-none absolute z-10 max-w-[200px] rounded bg-white px-2 py-1 text-center font-epilogue text-xs text-accent-red shadow"
-			>
-				<!-- Tooltip content -->
-			</div>
-		{/if}
 	</div>
 {/if}

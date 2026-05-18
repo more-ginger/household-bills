@@ -13,6 +13,12 @@
 		return benchmarkGroup ?? 'None';
 	};
 
+	$effect(() => {
+		if (!isFactors && !data[selectedFactor]?.['has-trend']) {
+			selectedFactor = 'age';
+		}
+	});
+
 	function changeSelectedGroup(key: string) {
 		selectedFactor = key;
 	}
