@@ -1,12 +1,10 @@
-<div class="grid h-32 grid-cols-1 items-center gap-6 bg-tertiary-blue pl-8">
+<div class="grid grid-cols-1 items-center gap-6 bg-tertiary-blue pl-8">
 	<div class="grid grid-cols-2 items-stretch justify-stretch gap-6">
 		<div class="p-4">
-			<div class="grid grid-cols-5 items-center gap-6">
-				<img src="logos/uol.png" />
-				<img src="logos/esrc.png" />
-				<img class="w-[60%] place-self-center" src="logos/citizens_advice.png" />
-				<img class="" src="logos/uclab.png" />
-				<img src="logos/fhp.png" />
+			<div class="grid grid-cols-1 items-center gap-6">
+				<p class="pt-2 font-epilogue text-xs">
+					© University of Applied Sciences Potsdam (FHP) & University of Liverpool, 2026.
+				</p>
 			</div>
 		</div>
 		<div class="grid grid-cols-5 place-items-end items-center gap-6 p-6 font-epilogue">

@@ -1,72 +1,123 @@
 <script>
-	import { base } from '$app/paths';
+	import { resolve } from '$app/paths';
 </script>
 
-<section class="h-dvh min-h-dvh">
-	<div class="flex h-full">
-		<div class="relative m-auto w-4/5 self-center text-center md:w-3/7">
+<section class="relative">
+	<div class="absolute top-6 left-0 flex w-full justify-center">
+		<div class="grid w-4/5 grid-cols-5 items-center gap-6 md:w-3/7">
+			<img src="logos/uol.png" alt="University of Liverpool" />
+			<img src="logos/esrc.png" alt="ESRC" />
+			<img
+				class="w-[60%] place-self-center"
+				src="logos/citizens_advice.png"
+				alt="Citizens Advice"
+			/>
+			<img src="logos/uclab.png" alt="UCLAB" />
+			<img src="logos/fhp.png" alt="FHP" />
+		</div>
+	</div>
+	<div class="flex h-dvh">
+		<div class="relative m-auto w-4/5 text-center md:w-3/7">
 			<div class="absolute -right-10 bottom-45 z-0 w-30 md:bottom-25 md:w-40">
-				<img src="{base}/illustrations/webp/objects/bill.webp" />
+				<img src={resolve('/illustrations/webp/objects/bill.webp')} alt="" />
 			</div>
 			<div class="relative z-10">
 				<h1 class="text-4xl font-bold md:text-6xl">Falling Behind on Household Bills</h1>
-				<h2 class="mt-2 text-xl md:text-2xl">
-					Risk Factors and Population Trends in the UK since 2009
-				</h2>
+				<h2 class="text-xl md:text-2xl">Risk Factors and Population Trends in the UK since 2009</h2>
 			</div>
 			<div class="mx-2 mt-10 text-base">
 				<p>
-					Research by Maya Middleton-Welch, Professor Mark Green, Professor Alex Singleton<sup
-						>1</sup
+					Research by Maya Middleton-Welch <sup class="group relative cursor-help"
+						>1<span
+							class="pointer-events-none absolute bottom-full left-1/2 mb-1 -translate-x-1/2 rounded bg-white px-2 py-1 text-xs whitespace-nowrap text-primary-blue opacity-0 shadow transition-opacity group-hover:opacity-100"
+							>University of Liverpool</span
+						></sup
+					>, Professor Mark Green
+					<sup class="group relative cursor-help"
+						>1<span
+							class="pointer-events-none absolute bottom-full left-1/2 mb-1 -translate-x-1/2 rounded bg-white px-2 py-1 text-xs whitespace-nowrap text-primary-blue opacity-0 shadow transition-opacity group-hover:opacity-100"
+							>University of Liverpool</span
+						></sup
+					>, Professor Alex Singleton<sup class="group relative cursor-help"
+						>1<span
+							class="pointer-events-none absolute bottom-full left-1/2 mb-1 -translate-x-1/2 rounded bg-white px-2 py-1 text-xs whitespace-nowrap text-primary-blue opacity-0 shadow transition-opacity group-hover:opacity-100"
+							>University of Liverpool</span
+						></sup
 					>
 				</p>
 				<p>
-					Digital briefing by Dr Francesca Morini<sup>2</sup> and Maya Middleton-Welch<sup>1</sup>
+					Digital briefing by Maya Middleton-Welch<sup class="group relative cursor-help"
+						>1<span
+							class="pointer-events-none absolute bottom-full left-1/2 mb-1 -translate-x-1/2 rounded bg-white px-2 py-1 text-xs whitespace-nowrap text-primary-blue opacity-0 shadow transition-opacity group-hover:opacity-100"
+							>University of Liverpool</span
+						></sup
+					>
+					and Dr Francesca Morini<sup class="group relative cursor-help"
+						>2<span
+							class="pointer-events-none absolute bottom-full left-1/2 mb-1 -translate-x-1/2 rounded bg-white px-2 py-1 text-xs whitespace-nowrap text-primary-blue opacity-0 shadow transition-opacity group-hover:opacity-100"
+							>UCLAB, University of Applied Sciences Potsdam</span
+						></sup
+					>
 				</p>
 			</div>
 		</div>
 	</div>
-</section>
-<section class="w-full border-t">
-	<div class="m-auto mt-16 flex w-full flex-col px-6 md:mt-30 md:w-5/7 md:flex-row md:px-0">
+	<div class="m-auto mt-16 flex w-full flex-col px-6 md:my-30 md:w-5/7 md:flex-row md:px-0">
 		<div class="mb-8 md:m-4 md:ml-2 md:w-2/5">
 			<h3
-				class="flex h-[3rem] justify-self-start rounded-4xl bg-white p-4 font-epilogue leading-[1.3rem] font-normal text-primary-blue uppercase"
+				class="flex justify-self-start font-epilogue leading-[1.3rem] font-normal text-white uppercase"
 			>
 				Quick Overview
 			</h3>
-			<p class="pt-6 md:pr-10">
+			<p class="pt-2 text-xl md:pr-10">
 				We analysed data from a large nationally representative survey, Understanding Society, over
 				the period 2009 to 2022. We identified trends and rates of demographic groups falling behind
-				on household bills Some individual and household characteristics are connected to the risk
+				on household bills. Some individual and household characteristics are connected to the risk
 				of falling behind on household bills.
 			</p>
-			<div class="pt-8">
-				<button class="flex items-center gap-2 p-2"
-					><img class="h-[1em] w-auto" src="{base}/icons/arrow-down.svg" />Scroll down to introduction</button
-				>
-				<button class="flex items-center gap-2 p-2"
-					><img class="h-[1em] w-auto" src="{base}/icons/arrow-down.svg" />Go to Risk Factors visualization</button
-				>
-				<button class="flex items-center gap-2 p-2"
-					><img class="h-[1em] w-auto" src="{base}/icons/arrow-down.svg" />Go to Risk Trends visualization</button
-				>
-			</div>
 		</div>
 		<div class="md:m-4 md:ml-2 md:w-3/5">
 			<h3
-				class="flex h-[3rem] justify-self-start rounded-4xl bg-white p-4 font-epilogue leading-[1.3rem] font-normal text-primary-blue uppercase"
+				class="flex justify-self-start font-epilogue leading-[1.3rem] font-normal text-white uppercase"
 			>
 				Key Findings
 			</h3>
-			<div class="pt-6">
+			<div class="py-2">
 				<p class="text-xl">Ethnic minority groups disproportionately affected since 2009</p>
-				<div class="my-8 flex min-h-50 flex-wrap">
-					<img class="h-50 w-auto shrink-0" src="{base}/illustrations/webp/humans/human1-blue.webp" />
-					<img class="h-50 w-auto shrink-0" src="{base}/illustrations/webp/humans/human10-darkblue.webp" />
-					<img class="h-50 w-auto shrink-0" src="{base}/illustrations/webp/humans/human6-blue.webp" />
-					<img class="h-50 w-auto shrink-0" src="{base}/illustrations/webp/humans/human7-darkblue.webp" />
-					<img class="h-50 w-auto shrink-0" src="{base}/illustrations/webp/humans/human8-blue.webp" />
+				<div class="my-2 flex min-h-50 flex-wrap">
+					<img
+						class="h-50 w-auto shrink-0"
+						src={resolve('/illustrations/webp/humans/human1-blue.webp')}
+						alt=""
+					/>
+					<img
+						class="h-50 w-auto shrink-0"
+						src={resolve('/illustrations/webp/humans/human10-darkblue.webp')}
+						alt=""
+					/>
+					<img
+						class="h-50 w-auto shrink-0"
+						src={resolve('/illustrations/webp/humans/human6-blue.webp')}
+						alt=""
+					/>
+					<img
+						class="h-50 w-auto shrink-0"
+						src={resolve('/illustrations/webp/humans/human7-darkblue.webp')}
+						alt=""
+					/>
+					<img
+						class="h-50 w-auto shrink-0"
+						src={resolve('/illustrations/webp/humans/human8-blue.webp')}
+						alt=""
+					/>
+				</div>
+				<div>
+					<a
+						href="?viz=trends#visualizations"
+						class="flex w-fit cursor-pointer items-center gap-2 rounded-3xl bg-white p-2 px-4 text-primary-blue shadow"
+						><img class="h-[1em] w-auto" src={resolve('/icons/arrow-down-skip.svg')} alt="" /> Jump to
+						Risk Trends</a
+					>
 				</div>
 			</div>
 			<div class="pt-2">
@@ -78,7 +129,8 @@
 						<div class="flex h-45 items-center justify-center overflow-hidden">
 							<img
 								class="h-full w-full object-contain p-4"
-								src="{base}/illustrations/webp/humans/human12-darkblue-accent.webp"
+								src={resolve('/illustrations/webp/humans/human12-darkblue-accent.webp')}
+								alt=""
 							/>
 						</div>
 						<p class="text-center">Disability</p>
@@ -87,7 +139,8 @@
 						<div class="flex h-45 items-center justify-center overflow-hidden">
 							<img
 								class="h-full w-full object-contain p-4"
-								src="{base}/illustrations/webp/humans/human4-darkblue-accent.webp"
+								src={resolve('/illustrations/webp/humans/human4-darkblue-accent.webp')}
+								alt=""
 							/>
 						</div>
 						<p class="text-center">Caring for others in household</p>
@@ -96,7 +149,8 @@
 						<div class="flex h-45 items-center justify-center overflow-hidden">
 							<img
 								class="h-full w-full object-contain p-6"
-								src="{base}/illustrations/webp/objects/universal-credit.webp"
+								src={resolve('/illustrations/webp/objects/universal-credit.webp')}
+								alt=""
 							/>
 						</div>
 						<p class="text-center">Universal Credit</p>
@@ -105,15 +159,36 @@
 						<div class="flex h-45 items-center justify-center overflow-hidden">
 							<img
 								class="h-full w-full object-contain p-4"
-								src="{base}/illustrations/webp/objects/bill.webp"
+								src={resolve('/illustrations/webp/objects/bill.webp')}
+								alt=""
 							/>
 						</div>
-						<p class="text-center">
+						<p class="text-center text-xs">
 							Higher percent of total household income from the welfare state
 						</p>
 					</div>
 				</div>
+				<div>
+					<a
+						href="?viz=factors#visualizations"
+						class="flex w-fit cursor-pointer items-center gap-2 rounded-3xl bg-white p-2 px-4 text-primary-blue shadow"
+						><img class="h-[1em] w-auto" src={resolve('/icons/arrow-down-skip.svg')} alt="" /> Jump to
+						Risk Factors</a
+					>
+				</div>
 			</div>
+		</div>
+	</div>
+	<div class="sticky bottom-10 left-0 w-full">
+		<div
+			class="m-auto grid w-fit grid-cols-1 justify-center rounded-xl bg-primary-blue/90 p-5 text-center"
+		>
+			<p class="mb-2 text-sm">Scroll down to read the report</p>
+			<img
+				src={resolve('/icons/arrow-down.svg')}
+				class="h-5 w-auto justify-self-center"
+				alt="Scroll down"
+			/>
 		</div>
 	</div>
 </section>
