@@ -3,8 +3,8 @@
 	import data from '$lib/data/data.json';
 	import RiskSelector from './visualizations/risk-change/RiskSelector.svelte';
 	import RiskLines from './visualizations/risk-trends/RiskLines.svelte';
-
-	let isFactors = $state(true);
+	import { browser } from '$app/environment';
+	import { afterNavigate } from '$app/navigation';
 
 	const formatLabel = (str: string) => {
 		const spaced = str.replace(/-/g, ' ');
@@ -14,22 +14,42 @@
 	const keys = Object.keys(data) as Array<keyof typeof data>;
 	let selectedFactor = $state<keyof typeof data>(keys[0]);
 
+	function readVizParam(): boolean {
+		return !browser || new URLSearchParams(window.location.search).get('viz') !== 'trends';
+	}
+
+	let isFactors = $state(readVizParam());
+
+	// Sync state when header links navigate in with ?viz= already in the URL
+	afterNavigate(() => {
+		isFactors = readVizParam();
+	});
+
+	function setViz(factors: boolean) {
+		isFactors = factors;
+		if (browser) {
+			const url = new URL(window.location.href);
+			url.searchParams.set('viz', factors ? 'factors' : 'trends');
+			window.history.replaceState({}, '', url.toString());
+		}
+	}
+
 	let selectedFactorData = $derived(data[selectedFactor]);
 	let selectedFactorDescription = $derived(selectedFactorData.description);
 </script>
 
-<section class="bg-primary-blue">
+<section id="visualizations" class="bg-primary-blue">
 	<div class="m-auto w-6/7 pb-8 md:w-6/7">
 		<div class="flex flex-col md:h-fit md:flex-row">
 			<div class="md:w-1/5">
 				<div class="mb-6 flex w-full rounded-3xl border md:mb-2">
 					<button
 						class={`grow cursor-pointer rounded-3xl ${isFactors ? 'bg-white text-primary-blue' : ' bg-primary-blue text-white'} p-2`}
-						onclick={() => (isFactors = true)}>Risk Factors</button
+						onclick={() => setViz(true)}>Risk Factors</button
 					>
 					<button
 						class={`grow cursor-pointer rounded-3xl ${isFactors ? ' bg-primary-blue text-white' : 'bg-white text-primary-blue'} p-2`}
-						onclick={() => (isFactors = false)}>Risk Trends</button
+						onclick={() => setViz(false)}>Risk Trends</button
 					>
 				</div>
 				<RiskSelector {data} {keys} {isFactors} bind:selectedFactor />
@@ -53,8 +73,7 @@
 		</div>
 		<div class="text-xs md:w-4/5 md:py-6">
 			Authors’ calculations using University of Essex, Institute for Social and Economic Research
-			(2023) data, other methodological annotations. These could be longer sentences or URL pointing
-			to extrernal resources. Now writing random things.
+			(2023) data.
 		</div>
 	</div>
 </section>
