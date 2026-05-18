@@ -82,9 +82,9 @@
 			>
 				Key Findings
 			</h3>
-			<div class="py-2">
+			<div class="pt-2 pb-8">
 				<p class="text-xl">Ethnic minority groups disproportionately affected since 2009</p>
-				<div class="my-2 flex min-h-50 flex-wrap">
+				<div class="flex min-h-50 flex-wrap">
 					<img
 						class="h-50 w-auto shrink-0"
 						src={resolve('/illustrations/webp/humans/human1-blue.webp')}
@@ -124,7 +124,7 @@
 				<p class="text-xl">
 					Key factors connected to an increased risk of being behind on bills include:
 				</p>
-				<div class="my-8 flex flex-wrap">
+				<div class="flex flex-wrap">
 					<div class="flex w-1/2 flex-col md:w-1/4">
 						<div class="flex h-45 items-center justify-center overflow-hidden">
 							<img

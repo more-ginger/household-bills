@@ -28,11 +28,7 @@
 				.onStepEnter((response) => {
 					step = response.index;
 					direction = response.direction;
-
-					console.log(step);
-				})
-				.onStepProgress((response) => {})
-				.onStepExit((response) => {});
+				});
 		}, 200);
 	});
 </script>
