@@ -3,12 +3,24 @@
 		{
 			"title": "city",
 			"css": "h-100",
-			"urls": ["/illustrations/webp/compositions/slide-1.webp"]
+			"urls": ["/illustrations/webp/compositions/slide-1.webp"],
+			"has-footnote": false,
+			"footnote": {
+				"text": "",
+				"link": "",
+				"img": ""
+			}
 		},
 		{
 			"title": "family-home",
 			"css": "h-140",
-			"urls": ["/illustrations/webp/compositions/slide-2.webp"]
+			"urls": ["/illustrations/webp/compositions/slide-2.webp"],
+			"has-footnote": false,
+			"footnote": {
+				"text": "",
+				"link": "",
+				"img": ""
+			}
 		},
 		{
 			"title": "population",
@@ -68,7 +80,13 @@
 				"/illustrations/webp/humans/human5-blue.webp",
 				"/illustrations/webp/humans/human8-blue.webp",
 				"/illustrations/webp/humans/human2-blue.webp"
-			]
+			],
+			"has-footnote": true,
+			"footnote": {
+				"text": "One icon represents 1 Mln people",
+				"link": "",
+				"img": "/illustrations/webp/humans/human5-darkblue.webp"
+			}
 		},
 		{
 			"title": "population",
@@ -128,7 +146,13 @@
 				"/illustrations/webp/humans/human5-blue.webp",
 				"/illustrations/webp/humans/human8-blue.webp",
 				"/illustrations/webp/humans/human2-blue.webp"
-			]
+			],
+			"has-footnote": true,
+			"footnote": {
+				"text": "One icon represents 1 Mln people",
+				"link": "",
+				"img": "/illustrations/webp/humans/human5-darkblue.webp"
+			}
 		},
 		{
 			"title": "population-selection-zoom",
@@ -141,31 +165,67 @@
 				"/illustrations/webp/humans/human1-darkblue.webp",
 				"/illustrations/webp/humans/human11-darkblue.webp",
 				"/illustrations/webp/humans/human6-darkblue.webp"
-			]
+			],
+			"has-footnote": true,
+			"footnote": {
+				"text": "Brainard, J., Cooke, R., Lane, K., & Salter, C. (2019). Age, sex and other correlates with active travel walking and cycling in England: Analysis of responses to the Active Lives Survey 2016/17. Preventive Medicine, 123, 225-231.",
+				"link": "https://doi.org/10.1016/j.ypmed.2019.03.043",
+				"img": "/icons/arrow-out.svg"
+			}
 		},
 		{
 			"title": "single-person",
 			"css": "h-120",
-			"urls": ["/illustrations/webp/compositions/slide-6.webp"]
+			"urls": ["/illustrations/webp/compositions/slide-6.webp"],
+			"has-footnote": true,
+			"footnote": {
+				"text": "Brainard, J., Cooke, R., Lane, K., & Salter, C. (2019). Age, sex and other correlates with active travel walking and cycling in England: Analysis of responses to the Active Lives Survey 2016/17. Preventive Medicine, 123, 225-231.",
+				"link": "https://doi.org/10.1016/j.ypmed.2019.03.043",
+				"img": "/icons/arrow-out.svg"
+			}
 		},
 		{
 			"title": "single-person-provisions",
 			"css": "h-120",
-			"urls": ["/illustrations/webp/compositions/slide-7.webp"]
+			"urls": ["/illustrations/webp/compositions/slide-7.webp"],
+			"has-footnote": false,
+			"footnote": {
+				"text": "",
+				"link": "",
+				"img": ""
+			}
 		},
 		{
 			"title": "single-person-fear",
 			"css": "h-80",
-			"urls": ["/illustrations/webp/humans/human5-darkblue-accent.webp"]
+			"urls": ["/illustrations/webp/humans/human5-darkblue-accent.webp"],
+			"has-footnote": false,
+			"footnote": {
+				"text": "",
+				"link": "",
+				"img": ""
+			}
 		},
 		{
 			"title": "chart",
-			"urls": ["/illustrations/webp/compositions/chart.svg"]
+			"urls": ["/illustrations/webp/compositions/chart.svg"],
+			"has-footnote": true,
+			"footnote": {
+				"text": "Data: University of Essex, Institute for Social and Economic Research (2023). Authors’ calculations.",
+				"link": "",
+				"img": ""
+			}
 		},
 		{
 			"title": "factors",
 			"css": "h-250",
-			"urls": ["/illustrations/webp/compositions/slide-10.webp"]
+			"urls": ["/illustrations/webp/compositions/slide-10.webp"],
+			"has-footnote": false,
+			"footnote": {
+				"text": "",
+				"link": "",
+				"img": ""
+			}
 		},
 		{
 			"title": "population-selection-fear",
@@ -178,10 +238,16 @@
 				"/illustrations/webp/humans/human1-darkblue-accent.webp",
 				"/illustrations/webp/humans/human11-darkblue-accent.webp",
 				"/illustrations/webp/humans/human6-darkblue-accent.webp"
-			]
+			],
+			"has-footnote": false,
+			"footnote": {
+				"text": "",
+				"link": "",
+				"img": ""
+			}
 		},
 		{
-			"title": "population",
+			"title": "population-end",
 			"css": "h-35",
 			"urls": [
 				"/illustrations/webp/humans/human5-darkblue.webp",
@@ -238,7 +304,13 @@
 				"/illustrations/webp/humans/human5-darkblue-accent.webp",
 				"/illustrations/webp/humans/human8-blue.webp",
 				"/illustrations/webp/humans/human2-blue.webp"
-			]
+			],
+			"has-footnote": true,
+			"footnote": {
+				"text": "University of Essex, Institute for Social and Economic Research. (2023). Understanding Society: Waves 7-8, 2015-2016: Special Licence Access, EU Referendum (Study No. 8556) [Data set]. UK Data Service.",
+				"link": "https://doi.org/10.5255/UKDA-SN-8556-1",
+				"img": "/icons/arrow-out.svg"
+			}
 		}
 	]
 }
