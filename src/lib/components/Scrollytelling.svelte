@@ -33,8 +33,8 @@
 	});
 </script>
 
-<div class="relative pb-40 md:pb-60">
-	<figure class="sticky top-0 h-dvh w-full">
+<div class="relative pb-[100vh]">
+	<figure class="sticky top-0 h-dvh w-full overflow-hidden">
 		<ScrollyFigure {step} />
 	</figure>
 	<article class="relative -mt-[100dvh]">

@@ -6,7 +6,8 @@
 
 	let width = $state(0);
 	let height = $state(0);
-	let marginX = 40;
+	let marginX = $derived(width < 400 ? 0 : 40);
+	let marginXright = 40;
 
 	let hoveredIndex = $state<number | null>(null);
 	let hoveredGroup = $state<string | null>(null);
@@ -29,7 +30,7 @@
 	const xScale = $derived(
 		scaleLinear()
 			.domain(xDomain)
-			.range([marginX + 25, width - marginX])
+			.range([marginX + 25, width - marginXright])
 	);
 
 	const yScale = $derived(
@@ -91,8 +92,6 @@
 			return resolved;
 		})()
 	);
-
-	$inspect(lineData);
 
 	// ── Validity guard ────────────────────────────────────────────────────────
 	const hasValidData = $derived(

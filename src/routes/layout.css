@@ -37,9 +37,17 @@
 	}
 }
 
+/*
+ * Each step must be at least one full viewport tall so scrollama
+ * (offset 0.7) has enough room to fire at the right moment.
+ * Using min-height + flex keeps the card vertically centred inside
+ * the step without relying on width-based % padding.
+ */
 .step {
-	padding-top: 50%;
-	padding-bottom: 50%;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .step-child {
@@ -47,12 +55,20 @@
 	background-color: var(--color-tertiary-blue);
 	border: 1px solid white;
 	border-radius: 10px;
-	width: 30%;
+	width: 88%;
 	margin: 0 auto;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding: 2rem;
+	padding: 1.25rem;
 	text-align: center;
-	font-size: 1.25rem;
+	font-size: 1rem;
+}
+
+@media (min-width: 768px) {
+	.step-child {
+		width: 30%;
+		padding: 2rem;
+		font-size: 1.25rem;
+	}
 }
