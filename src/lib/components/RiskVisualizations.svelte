@@ -39,7 +39,7 @@
 </script>
 
 <section id="visualizations" class="bg-primary-blue">
-	<div class="m-auto w-6/7 pb-8 md:w-6/7">
+	<div class="m-auto w-full px-3 pb-8 md:w-6/7 md:px-0">
 		<div class="flex flex-col md:h-fit md:flex-row">
 			<div class="md:w-1/5">
 				<div class="mb-6 flex w-full rounded-3xl border md:mb-2">

@@ -3,8 +3,8 @@
 </script>
 
 <section class="relative">
-	<div class="absolute top-6 left-0 flex w-full justify-center">
-		<div class="grid w-4/5 grid-cols-5 items-center gap-6 md:w-3/7">
+	<div class="absolute top-4 left-0 flex w-full justify-center">
+		<div class="grid w-11/12 grid-cols-5 items-center gap-2 md:w-3/7 md:gap-6">
 			<img src="logos/uol.png" alt="University of Liverpool" />
 			<img src="logos/esrc.png" alt="ESRC" />
 			<img
@@ -17,15 +17,17 @@
 		</div>
 	</div>
 	<div class="flex h-dvh">
-		<div class="relative m-auto w-4/5 text-center md:w-3/7">
-			<div class="absolute -right-10 bottom-45 z-0 w-30 md:bottom-25 md:w-40">
+		<div class="relative m-auto w-11/12 text-center md:w-3/7">
+			<div class="absolute bottom-45 z-0 w-30 md:-right-10 md:bottom-25 md:w-40">
 				<img src={resolve('/illustrations/webp/objects/bill.webp')} alt="" />
 			</div>
 			<div class="relative z-10">
 				<h1 class="text-4xl font-bold md:text-6xl">Falling Behind on Household Bills</h1>
-				<h2 class="text-xl md:text-2xl">Risk Factors and Population Trends in the UK since 2009</h2>
+				<h2 class="mt-2 text-sm md:m-0 md:text-2xl">
+					Risk Factors and Population Trends in the UK since 2009
+				</h2>
 			</div>
-			<div class="mx-2 mt-10 text-base">
+			<div class="mx-10 mt-6 text-xs md:mt-10 md:text-base">
 				<p>
 					Research by Maya Middleton-Welch <sup class="group relative cursor-help"
 						>1<span
@@ -62,10 +64,10 @@
 			</div>
 		</div>
 	</div>
-	<div class="m-auto mt-16 flex w-full flex-col px-6 md:my-30 md:w-5/7 md:flex-row md:px-0">
-		<div class="mb-8 md:m-4 md:ml-2 md:w-2/5">
+	<div class="m-auto flex w-full flex-col px-4 md:my-30 md:w-5/7 md:flex-row md:px-0">
+		<div class="mb-20 md:m-4 md:ml-2 md:w-2/5">
 			<h3
-				class="flex justify-self-start font-epilogue leading-[1.3rem] font-normal text-white uppercase"
+				class="mb-2 flex justify-self-start font-epilogue leading-[1.3rem] font-normal text-white uppercase md:m-0"
 			>
 				Quick Overview
 			</h3>
@@ -78,40 +80,40 @@
 		</div>
 		<div class="md:m-4 md:ml-2 md:w-3/5">
 			<h3
-				class="flex justify-self-start font-epilogue leading-[1.3rem] font-normal text-white uppercase"
+				class="mb-2 flex justify-self-start font-epilogue leading-[1.3rem] font-normal text-white uppercase md:m-0"
 			>
 				Key Findings
 			</h3>
-			<div class="pt-2 pb-8">
+			<div class="pt-8 md:pt-2">
 				<p class="text-xl">Ethnic minority groups disproportionately affected since 2009</p>
-				<div class="flex min-h-50 flex-wrap">
+				<div class="flex flex-wrap md:min-h-50">
 					<img
-						class="h-50 w-auto shrink-0"
+						class="h-28 w-auto shrink-0 md:h-50"
 						src={resolve('/illustrations/webp/humans/human1-blue.webp')}
 						alt=""
 					/>
 					<img
-						class="h-50 w-auto shrink-0"
+						class="h-28 w-auto shrink-0 md:h-50"
 						src={resolve('/illustrations/webp/humans/human10-darkblue.webp')}
 						alt=""
 					/>
 					<img
-						class="h-50 w-auto shrink-0"
+						class="h-28 w-auto shrink-0 md:h-50"
 						src={resolve('/illustrations/webp/humans/human6-blue.webp')}
 						alt=""
 					/>
 					<img
-						class="h-50 w-auto shrink-0"
+						class="h-28 w-auto shrink-0 md:h-50"
 						src={resolve('/illustrations/webp/humans/human7-darkblue.webp')}
 						alt=""
 					/>
 					<img
-						class="h-50 w-auto shrink-0"
+						class="h-28 w-auto shrink-0 md:h-50"
 						src={resolve('/illustrations/webp/humans/human8-blue.webp')}
 						alt=""
 					/>
 				</div>
-				<div>
+				<div class="my-10 flex items-center justify-center">
 					<a
 						href="?viz=trends#visualizations"
 						class="flex w-fit cursor-pointer items-center gap-2 rounded-3xl bg-white p-2 px-4 text-primary-blue shadow"
@@ -120,11 +122,33 @@
 					>
 				</div>
 			</div>
-			<div class="pt-2">
+			<div class="pt-8 md:pt-2">
 				<p class="text-xl">
 					Key factors connected to an increased risk of being behind on bills include:
 				</p>
 				<div class="flex flex-wrap">
+					<div class="flex w-1/2 flex-col md:w-1/4">
+						<div class="flex h-45 items-center justify-center overflow-hidden">
+							<img
+								class="h-full w-full object-contain p-10 md:p-6"
+								src={resolve('/illustrations/webp/objects/bill.webp')}
+								alt=""
+							/>
+						</div>
+						<p class="px-5 text-center text-xs md:px-0">
+							Higher percent of total household income from the welfare state
+						</p>
+					</div>
+					<div class="flex w-1/2 flex-col md:w-1/4">
+						<div class="flex h-45 items-center justify-center overflow-hidden">
+							<img
+								class="h-full w-full object-contain p-4"
+								src={resolve('/illustrations/webp/humans/human4-darkblue-accent.webp')}
+								alt=""
+							/>
+						</div>
+						<p class="px-8 text-center text-xs md:px-0">Caring for others in household</p>
+					</div>
 					<div class="flex w-1/2 flex-col md:w-1/4">
 						<div class="flex h-45 items-center justify-center overflow-hidden">
 							<img
@@ -138,37 +162,15 @@
 					<div class="flex w-1/2 flex-col md:w-1/4">
 						<div class="flex h-45 items-center justify-center overflow-hidden">
 							<img
-								class="h-full w-full object-contain p-4"
-								src={resolve('/illustrations/webp/humans/human4-darkblue-accent.webp')}
-								alt=""
-							/>
-						</div>
-						<p class="text-center text-xs">Caring for others in household</p>
-					</div>
-					<div class="flex w-1/2 flex-col md:w-1/4">
-						<div class="flex h-45 items-center justify-center overflow-hidden">
-							<img
-								class="h-full w-full object-contain p-6"
+								class="h-full w-full object-contain p-10 md:p-6"
 								src={resolve('/illustrations/webp/objects/universal-credit.webp')}
 								alt=""
 							/>
 						</div>
 						<p class="text-center text-xs">Universal Credit</p>
 					</div>
-					<div class="flex w-1/2 flex-col md:w-1/4">
-						<div class="flex h-45 items-center justify-center overflow-hidden">
-							<img
-								class="h-full w-full object-contain p-4"
-								src={resolve('/illustrations/webp/objects/bill.webp')}
-								alt=""
-							/>
-						</div>
-						<p class="text-center text-xs">
-							Higher percent of total household income from the welfare state
-						</p>
-					</div>
 				</div>
-				<div>
+				<div class="my-10 flex items-center justify-center">
 					<a
 						href="?viz=factors#visualizations"
 						class="flex w-fit cursor-pointer items-center gap-2 rounded-3xl bg-white p-2 px-4 text-primary-blue shadow"
