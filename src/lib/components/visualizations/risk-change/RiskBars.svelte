@@ -31,8 +31,6 @@
 		hoveredIndex = null;
 	});
 
-	$inspect(selectedFactor);
-
 	const LABEL_FONT_SIZE = 12;
 	const LABEL_CHAR_PX = 6; // approximate px width per character at font-size 12
 

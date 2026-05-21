@@ -197,7 +197,7 @@
 		},
 		{
 			"title": "single-person-fear",
-			"css": "h-80",
+			"css": "h-60 md:h-80",
 			"urls": ["/illustrations/webp/humans/human5-darkblue-accent.webp"],
 			"has-footnote": false,
 			"footnote": {
@@ -219,7 +219,7 @@
 		},
 		{
 			"title": "factors",
-			"css": "h-200",
+			"css": "h-150 md:h-200",
 			"urls": ["/illustrations/webp/compositions/slide-10.webp"],
 			"has-footnote": false,
 			"footnote": {

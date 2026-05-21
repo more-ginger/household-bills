@@ -44,10 +44,9 @@
 			</div>
 		{:else}
 			<div class="flex flex-wrap justify-center">
-				<!-- Single illustration — constrained to viewport height -->
 				{#each FigureData['figure-steps'][shownStep].urls as figure}
 					<img
-						class={`${FigureData['figure-steps'][shownStep].css} w-auto max-w-full object-contain`}
+						class={`${FigureData['figure-steps'][shownStep].css} w-auto object-contain`}
 						src={resolve(figureUrl(FigureData['figure-steps'][shownStep], figure))}
 						alt=""
 					/>
