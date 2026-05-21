@@ -33,7 +33,7 @@
 	});
 </script>
 
-<div class="relative pb-[100vh]">
+<div class="relative pb-[20vh]">
 	<figure class="sticky top-0 h-dvh w-full overflow-hidden">
 		<ScrollyFigure {step} />
 	</figure>
