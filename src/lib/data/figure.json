@@ -208,7 +208,7 @@
 		},
 		{
 			"title": "chart",
-			"css": "h-120 md:h-80",
+			"css": "h-120 md:h-150",
 			"urls": ["/illustrations/webp/compositions/chart.svg"],
 			"has-footnote": true,
 			"footnote": {
@@ -219,7 +219,7 @@
 		},
 		{
 			"title": "factors",
-			"css": "h-250",
+			"css": "h-200",
 			"urls": ["/illustrations/webp/compositions/slide-10.webp"],
 			"has-footnote": false,
 			"footnote": {

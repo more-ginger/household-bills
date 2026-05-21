@@ -130,6 +130,28 @@
 					<div class="flex w-1/2 flex-col md:w-1/4">
 						<div class="flex h-45 items-center justify-center overflow-hidden">
 							<img
+								class="h-full w-full object-contain p-10 md:p-6"
+								src={resolve('/illustrations/webp/objects/bill.webp')}
+								alt=""
+							/>
+						</div>
+						<p class="px-5 text-center text-xs md:px-0">
+							Higher percent of total household income from the welfare state
+						</p>
+					</div>
+					<div class="flex w-1/2 flex-col md:w-1/4">
+						<div class="flex h-45 items-center justify-center overflow-hidden">
+							<img
+								class="h-full w-full object-contain p-4"
+								src={resolve('/illustrations/webp/humans/human4-darkblue-accent.webp')}
+								alt=""
+							/>
+						</div>
+						<p class="px-8 text-center text-xs md:px-0">Caring for others in household</p>
+					</div>
+					<div class="flex w-1/2 flex-col md:w-1/4">
+						<div class="flex h-45 items-center justify-center overflow-hidden">
+							<img
 								class="h-full w-full object-contain p-4"
 								src={resolve('/illustrations/webp/humans/human12-darkblue-accent.webp')}
 								alt=""
@@ -140,34 +162,12 @@
 					<div class="flex w-1/2 flex-col md:w-1/4">
 						<div class="flex h-45 items-center justify-center overflow-hidden">
 							<img
-								class="h-full w-full object-contain p-4"
-								src={resolve('/illustrations/webp/humans/human4-darkblue-accent.webp')}
-								alt=""
-							/>
-						</div>
-						<p class="text-center text-xs">Caring for others in household</p>
-					</div>
-					<div class="flex w-1/2 flex-col md:w-1/4">
-						<div class="flex h-45 items-center justify-center overflow-hidden">
-							<img
 								class="h-full w-full object-contain p-10 md:p-6"
 								src={resolve('/illustrations/webp/objects/universal-credit.webp')}
 								alt=""
 							/>
 						</div>
 						<p class="text-center text-xs">Universal Credit</p>
-					</div>
-					<div class="flex w-1/2 flex-col md:w-1/4">
-						<div class="flex h-45 items-center justify-center overflow-hidden">
-							<img
-								class="h-full w-full object-contain p-10 md:p-6"
-								src={resolve('/illustrations/webp/objects/bill.webp')}
-								alt=""
-							/>
-						</div>
-						<p class="text-center text-xs">
-							Higher percent of total household income from the welfare state
-						</p>
 					</div>
 				</div>
 				<div class="my-10 flex items-center justify-center">
