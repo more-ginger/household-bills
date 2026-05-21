@@ -38,7 +38,11 @@
 			<div class="grid max-w-[95vw] grid-cols-8 md:w-[50vw] md:grid-cols-11 md:grid-rows-6">
 				{#each FigureData['figure-steps'][shownStep].urls as figure}
 					<div class="flex items-center justify-center">
-						<img class="h-auto w-full object-contain" src={`${figure}`} alt="" />
+						<img
+							class="h-auto w-full object-contain"
+							src={resolve(figureUrl(FigureData['figure-steps'][shownStep], figure))}
+							alt=""
+						/>
 					</div>
 				{/each}
 			</div>
